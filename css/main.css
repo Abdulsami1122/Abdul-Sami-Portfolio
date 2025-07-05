@@ -3,7 +3,7 @@
 /* variables */
 :root{
     --fros-blue-color: #0050d5;
-    --light-blue-color: #16c5ff;
+    --light-blue-color: #081b29;
     --dark-color: #202020;
     --light-gray: #dedede;
     --dark-gray: #a1a1a0;
@@ -281,7 +281,7 @@ button[class ^= navbar]:hover{
 }
 .header-inner-left h1 span{
     font-weight: 600;
-    text-transform: uppercase;
+    
 }
 .header-inner-left .lead{
     opacity: 0.9;
@@ -376,7 +376,7 @@ button[class ^= navbar]:hover{
     z-index: -2;
 }
 
-/* banner one section */
+/* banner one section
 .banner-one{
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 80, 213, 0.9)), to(rgba(0, 90, 213, 0.85))), url('../images/banner-1-img.png') top/cover no-repeat;
     background: -o-linear-gradient(rgba(0, 80, 213, 0.9), rgba(0, 90, 213, 0.85)), url('../images/banner-1-img.png') top/cover no-repeat;
@@ -399,7 +399,7 @@ button[class ^= navbar]:hover{
 }
 .banner-one .text-sm{
     font-weight: 500;
-}
+} */
 
 /* services section */
 .services .section-head .text-lg{
@@ -440,27 +440,6 @@ button[class ^= navbar]:hover{
     opacity: 0.7;
 }
 
-/* banner two section */
-.banner-two{
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 80, 213, 0.9)), to(rgba(0, 90, 213, 0.85))), url('../images/banner-two-bg.png') top/cover no-repeat;
-    background: -o-linear-gradient(rgba(0, 80, 213, 0.9), rgba(0, 90, 213, 0.85)), url('../images/banner-two-bg.png') top/cover no-repeat;
-    background: linear-gradient(rgba(0, 80, 213, 0.9), rgba(0, 90, 213, 0.85)), url('../images/banner-two-bg.png') top/cover no-repeat;
-    padding: 13.6rem 0;
-}
-.banner-two-left img{
-    max-width: 620px;
-    margin: auto;
-}
-.banner-two-right .lead{
-    font-size: 2.2rem;
-    margin-top: 6rem;
-}
-.banner-two-right .btn-group{
-    margin-top: 6rem;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-}
 
 /* doctors panel */
 .doc-panel-inner{

@@ -309,7 +309,7 @@ button[class ^= navbar]:hover{
 .section-head h2{
     font-size: 4rem;
     font-weight: 500;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 .border-line{
@@ -347,7 +347,7 @@ button[class ^= navbar]:hover{
 }
 .about-right .img{
     width: 100%;
-    background-color: #3983fe;
+    /* background-color: #3983fe; */
     max-width: 537px;
     position: relative;
 }
@@ -366,14 +366,14 @@ button[class ^= navbar]:hover{
 .about-right .img::after{
     top: -56px;
     left: 0;
-    background-color: #0060ff;
+    /* background-color: #0060ff; */
     z-index: -1;
 }
 .about-right .img::before{
     top: -112px;
     left: 0;
-    background-color: var(--fros-blue-color);
-    z-index: -2;
+    /* background-color: var(--fros-blue-color);
+    z-index: -2; */
 }
 
 /* banner one section

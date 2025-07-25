@@ -274,10 +274,37 @@ button[class ^= navbar]:hover{
 .header-inner{
     padding-top: 16rem;
 }
+.header-inner-left{
+     animation: header-inner-leftAnimation 2s ease-out;
+    max-width: 600px;
+}
 .header-inner-left h1{
+    
     font-size: 4rem;
     font-weight: 300;
     margin-bottom: 0;
+}
+@keyframes header-inner-leftAnimation{
+    0%{
+        transform: translatex(-100px);
+        opacity: 0;    }
+    
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes leadAnimation{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 .header-inner-left h1 span{
     font-weight: 600;
@@ -285,6 +312,8 @@ button[class ^= navbar]:hover{
 }
 .header-inner-left .lead{
     opacity: 0.9;
+    animation: leadAnimation 6s ;
+    
 }
 .header-inner-left .text{
     margin: 5.8rem 0;

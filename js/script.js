@@ -31,3 +31,31 @@ window.addEventListener('resize', () =>{
         document.body.classList.remove('resize-animation-stopper');
     }, 400);
 });
+
+
+h1 = document.querySelector(".sami");
+function changeColor(color , delay , nextcolorchange){
+    setTimeout(()=> {
+        h1.style.color= color;
+        if(nextcolorchange)nextcolorchange();
+     }, delay);
+}
+changeColor("yellow",2000,()=>{
+changeColor("brown",1000,()=>{
+changeColor("orange",1000,()=>{
+changeColor("gold",1000,()=>{
+changeColor("turquoise",1000,()=>{
+changeColor("gold",1000,()=>{
+changeColor("lavender",1000,()=>{
+changeColor("yellow",1000,()=>{
+changeColor("white",1000,()=>{
+
+});
+});
+});
+});
+});
+});
+});
+});
+});

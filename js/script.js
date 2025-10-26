@@ -3,11 +3,34 @@ const navbarShowBtn = document.querySelector('.navbar-show-btn');
 const navbarCollapseDiv = document.querySelector('.navbar-collapse');
 const navbarHideBtn = document.querySelector('.navbar-hide-btn');
 
+// Ensure navbar is hidden on load
+if (navbarCollapseDiv) {
+    navbarCollapseDiv.classList.remove('navbar-show');
+}
+
+// Function to close mobile menu
+function closeMobileMenu() {
+    navbarCollapseDiv.classList.remove('navbar-show');
+}
+
 navbarShowBtn.addEventListener('click', function(){
     navbarCollapseDiv.classList.add('navbar-show');
 });
+
 navbarHideBtn.addEventListener('click', function(){
-    navbarCollapseDiv.classList.remove('navbar-show');
+    closeMobileMenu();
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const isClickInsideMenu = navbarCollapseDiv.contains(event.target);
+    const isClickOnShowBtn = navbarShowBtn.contains(event.target);
+    
+    if (navbarCollapseDiv.classList.contains('navbar-show') && 
+        !isClickInsideMenu && 
+        !isClickOnShowBtn) {
+        closeMobileMenu();
+    }
 });
 
 // changing search icon image on window resize
@@ -51,20 +74,35 @@ const revealOnScroll = () => {
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll(); // Run once on load
 
+// Function to scroll to top
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    // Close mobile menu if open
+    closeMobileMenu();
+}
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') {
+            e.preventDefault();
+            scrollToTop();
+            return;
+        }
+        
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
             // Close mobile menu if open
-            if (window.innerWidth < 1200) {
-                navbarCollapseDiv.classList.remove('navbar-show');
-            }
+            closeMobileMenu();
         }
     });
 });
@@ -133,6 +171,43 @@ document.querySelectorAll('.service-item, .doc-panel-item, .post-item').forEach(
     });
 });
 
+// Search functionality
+const searchInput = document.querySelector('.search-control');
+if (searchInput) {
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const searchTerm = this.value.toLowerCase();
+            
+            // Search through page content
+            const sections = {
+                'home': document.getElementById('about') || document.querySelector('header'),
+                'about': document.getElementById('about'),
+                'portfolio': document.getElementById('portfolio'),
+                'skills': document.getElementById('portfolio'),
+                'team': document.getElementById('team'),
+                'post': document.getElementById('posts'),
+                'posts': document.getElementById('posts'),
+                'blog': document.getElementById('posts'),
+                'experience': document.getElementById('experience'),
+                'contact': document.getElementById('contact')
+            };
+            
+            // Try to find matching section
+            for (const [key, section] of Object.entries(sections)) {
+                if (searchTerm.includes(key) && section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    this.value = '';
+                    return;
+                }
+            }
+            
+            // If no match found, show alert
+            alert('No results found. Try searching for: home, about, portfolio, skills, team, posts, experience, or contact');
+        }
+    });
+}
+
 // Add CSS for ripple effect
 const style = document.createElement('style');
 style.textContent = `
@@ -154,5 +229,278 @@ style.textContent = `
             opacity: 0;
         }
     }
+    #form-status {
+        padding: 1rem;
+        border-radius: 5px;
+        animation: fadeIn 0.3s ease;
+    }
+    #form-status.success {
+        background-color: rgba(76, 175, 80, 0.2);
+        border: 1px solid #4CAF50;
+        color: #4CAF50;
+    }
+    #form-status.error {
+        background-color: rgba(244, 67, 54, 0.2);
+        border: 1px solid #f44336;
+        color: #f44336;
+    }
 `;
 document.head.appendChild(style);
+
+// Typing Animation for Professional Titles
+const typingText = document.getElementById('typing-text');
+const cursor = document.getElementById('cursor');
+
+const titles = [
+    'Web Developer',
+    'Programmer', 
+    'Frontend Developer',
+    'React Developer',
+    'JavaScript Developer',
+    'UI/UX Designer',
+    'Software Engineer'
+];
+
+let titleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typeSpeed = 100;
+
+function typeWriter() {
+    const currentTitle = titles[titleIndex];
+    
+    if (isDeleting) {
+        typingText.textContent = currentTitle.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50; // Faster when deleting
+    } else {
+        typingText.textContent = currentTitle.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 100; // Normal speed when typing
+    }
+    
+    if (!isDeleting && charIndex === currentTitle.length) {
+        typeSpeed = 2000; // Pause at end
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        titleIndex = (titleIndex + 1) % titles.length;
+        typeSpeed = 500; // Pause before next title
+    }
+    
+    setTimeout(typeWriter, typeSpeed);
+}
+
+// Start typing animation when page loads
+if (typingText && cursor) {
+    typeWriter();
+}
+
+// Enhanced Email Functionality
+class EmailService {
+    constructor() {
+        this.receiverEmail = 'samij7141@gmail.com';
+        this.serviceUrls = [
+            'https://formsubmit.co/ajax/samij7141@gmail.com',
+            'https://api.emailjs.com/api/v1.0/email/send',
+            'https://api.web3forms.com/submit'
+        ];
+    }
+
+    async sendEmail(formData) {
+        const emailData = {
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            to: this.receiverEmail,
+            from: formData.email,
+            replyTo: formData.email
+        };
+
+        // Try multiple email services for reliability
+        for (let i = 0; i < this.serviceUrls.length; i++) {
+            try {
+                const result = await this.tryEmailService(this.serviceUrls[i], emailData);
+                if (result.success) {
+                    return { success: true, service: this.serviceUrls[i], data: result };
+                }
+            } catch (error) {
+                console.warn(`Email service ${i + 1} failed:`, error);
+                continue;
+            }
+        }
+
+        // Fallback to mailto
+        return this.fallbackToMailto(emailData);
+    }
+
+    async tryEmailService(url, data) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+                signal: controller.signal
+            });
+
+            clearTimeout(timeoutId);
+            
+            if (response.ok) {
+                const result = await response.json();
+                return { success: true, data: result };
+            } else {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+        } catch (error) {
+            clearTimeout(timeoutId);
+            throw error;
+        }
+    }
+
+    fallbackToMailto(data) {
+        const subject = encodeURIComponent(data.subject);
+        const body = encodeURIComponent(
+            `Name: ${data.name}\n` +
+            `Email: ${data.email}\n` +
+            `Subject: ${data.subject}\n\n` +
+            `Message:\n${data.message}`
+        );
+        
+        const mailtoLink = `mailto:${this.receiverEmail}?subject=${subject}&body=${body}`;
+        window.location.href = mailtoLink;
+        
+        return { 
+            success: true, 
+            method: 'mailto',
+            message: 'Opened email client. Please send manually.'
+        };
+    }
+
+    validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    validateForm(formData) {
+        const errors = [];
+        
+        if (!formData.name || formData.name.trim().length < 2) {
+            errors.push('Name must be at least 2 characters long');
+        }
+        
+        if (!formData.email || !this.validateEmail(formData.email)) {
+            errors.push('Please enter a valid email address');
+        }
+        
+        if (!formData.subject || formData.subject.trim().length < 3) {
+            errors.push('Subject must be at least 3 characters long');
+        }
+        
+        if (!formData.message || formData.message.trim().length < 10) {
+            errors.push('Message must be at least 10 characters long');
+        }
+        
+        return errors;
+    }
+}
+
+// Initialize email service
+const emailService = new EmailService();
+
+// Enhanced contact form handler
+function initializeContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    
+    if (!contactForm || !formStatus) return;
+
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            subject: document.getElementById('subject').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
+        
+        // Validate form
+        const validationErrors = emailService.validateForm(formData);
+        if (validationErrors.length > 0) {
+            showFormStatus(formStatus, validationErrors.join(', '), 'error');
+            return;
+        }
+        
+        // Show loading state
+        showFormStatus(formStatus, '📧 Sending message...', 'loading');
+        
+        try {
+            // Send email
+            const result = await emailService.sendEmail(formData);
+            
+            if (result.success) {
+                showFormStatus(formStatus, 
+                    '✅ Message sent successfully! You will receive a copy at samij7141@gmail.com', 
+                    'success'
+                );
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Hide message after 8 seconds
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 8000);
+            } else {
+                throw new Error('Email sending failed');
+            }
+        } catch (error) {
+            console.error('Email error:', error);
+            showFormStatus(formStatus, 
+                '❌ Failed to send message. Please try again or contact directly at samij7141@gmail.com', 
+                'error'
+            );
+        }
+    });
+}
+
+function showFormStatus(element, message, type) {
+    element.textContent = message;
+    element.style.display = 'block';
+    element.className = `text text-sm ${type}`;
+    
+    // Style based on type
+    switch(type) {
+        case 'success':
+            element.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
+            element.style.border = '1px solid #4CAF50';
+            element.style.color = '#4CAF50';
+            break;
+        case 'error':
+            element.style.backgroundColor = 'rgba(244, 67, 54, 0.2)';
+            element.style.border = '1px solid #f44336';
+            element.style.color = '#f44336';
+            break;
+        case 'loading':
+            element.style.backgroundColor = 'rgba(255, 193, 7, 0.2)';
+            element.style.border = '1px solid #FFC107';
+            element.style.color = '#FFC107';
+            break;
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeContactForm();
+});
+
+// Contact Form is now handled with enhanced email service
+

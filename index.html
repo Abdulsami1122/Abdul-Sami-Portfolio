@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Abdul Sami  Portfolio</title>
+    <meta name="description" content="Portfolio of Abdul Sami - Frontend Web Developer specializing in HTML, CSS, JavaScript, and React.js">
+    <meta name="keywords" content="Abdul Sami, Frontend Developer, Web Developer, HTML, CSS, JavaScript, React.js, Portfolio">
+    <meta name="author" content="Abdul Sami">
+    <link rel="icon" type="image/png" href="images/icons8-programming-94.png">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- normalize css -->
@@ -20,7 +24,7 @@
         <nav class = "navbar bg-blue">
             <div class = "container flex">
                 <a href = "index.html" class = "navbar-brand">
-                    <img src = "images/icons8-programming-94.png" alt = "site logo" style="width: 90px; height: 52px; " >
+                    <img src = "images/icons8-programming-94.png" alt = "site logo" class="logo-img">
                 </a>
                 <button type = "button" class = "navbar-show-btn">
                     <img src = "images/ham-menu-icon.png">
@@ -32,25 +36,25 @@
                     </button>
                     <ul class = "navbar-nav">
                         <li class = "nav-item">
-                            <a href = "#" class = "nav-link">Home</a>
+                            <a href = "#" class = "nav-link" onclick="scrollToTop()">Home</a>
                         </li>
                         <li class = "nav-item">
-                            <a href = "#t2" class = "nav-link">About</a>
+                            <a href = "#about" class = "nav-link">About</a>
                         </li>
                         <li class = "nav-item">
-                            <a href = "#t3" class = "nav-link">Portfolio</a>
+                            <a href = "#portfolio" class = "nav-link">Portfolio</a>
                         </li>
                         <li class = "nav-item">
-                            <a href = "#t6" class = "nav-link">Our team</a>
+                            <a href = "#team" class = "nav-link">Our Team</a>
                         </li>
                         <li class = "nav-item">
-                            <a href = "#t7" class = "nav-link">Latest post</a>
+                            <a href = "#posts" class = "nav-link">Latest Post</a>
                         </li>
                         <li class = "nav-item">
-                            <a href = "#t4" class = "nav-link">Experience</a>
+                            <a href = "#experience" class = "nav-link">Experience</a>
                         </li>
                         <li class = "nav-item">
-                            <a href = "#t5" class = "nav-link">Contact</a>
+                            <a href = "#contact" class = "nav-link">Contact</a>
                         </li>
                     </ul>
                     <div class = "search-bar">
@@ -59,7 +63,7 @@
                                 <span class = "search-icon flex">
                                     <img src = "images/search-icon-dark.png">
                                 </span>
-                                <input type = "search" class = "search-control" placeholder="Search here">
+                                <input type = "search" class = "search-control" placeholder="Search sections...">
                             </div>
                         </form>
                     </div>
@@ -70,12 +74,20 @@
         <div class = "header-inner text-white text-center">
             <div class = "container grid">
                 <div class = "header-inner-left">
-                    <h1  style="padding-top: 10px;"><span>Hi, i'm <span class="sami">Abdul Sami</span>  </span><br> <span>Frontend Web Developer</span></h1>
+                    <h1  style="padding-top: 10px;"><span>Hi, i'm <span class="sami">Abdul Sami</span>  </span><br> 
+                        <span class="animated-text">
+                            <span class="static-text">I'm a </span>
+                            <span class="typing-text" id="typing-text"></span>
+                            <span class="cursor" id="cursor">|</span>
+                        </span>
+                    </h1>
                     <p class = "lead">"Building Websites, building dreams"</p>
                     <p class = "text text-md">I'm fueled by a passion for crafting user-friendly and impactful software solutions.</p>
                     <div class = "btn-group">
-                        <a href = "#" class = "btn btn-white " style="color: black;">Hire Me</a>
-                        <a href = "#" class = "btn btn-light-blue">Let's Talk</a>
+                        <a href = "Abdul_Sami3.pdf" target="_blank" class = "btn btn-white " style="color: black;" download="Abdul_Sami_Resume.pdf">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                        <!-- <a href = "#t5" class = "btn btn-light-blue">Let's Talk</a> -->
                     </div>
                 </div>
                 <div class = "header-inner-right">
@@ -88,7 +100,7 @@
 
     <main>
         <!-- about section -->
-        <a name="t2"><section id = "about" class = "about py"></section></a>
+        <section id = "about" class = "about py">
             <div class = "about-inner">
                 <div class = "container grid">
                     <div class = "about-left text-center">
@@ -98,7 +110,7 @@
                         </div>
                          <article class = "service-item">
                         <p class = "text text-sm"><span style="font-weight: bold;">Hello! I'm Abdul Sami, </span> a passionate Software Engineering student at Islamia College University Peshawar, Pakistan. With a strong foundation in software development principles, I'm dedicated to crafting innovative digital solutions. As a skilled <span style="font-weight: bold;">Frontend Web Developer,</span>  I specialize in building responsive, user-friendly, and visually stunning web applications using HTML, CSS,<span style="font-weight: bold;">JavaScript, React.js,</span>  and Tailwind CSS. Currently, I'm expanding my skill set to <span style="font-weight: bold;">Backend Development,</span> exploring the world of server-side programming and database management. I'm constantly learning, experimenting, and pushing the boundaries of what's possible on the web. With a strong academic background and hands-on experience, I'm confident in my ability to deliver high-quality solutions.</p>
-                         <a href = "#" class = "btn btn-white">Learn More</a>
+                         <a href = "#portfolio" class = "btn btn-white">View Portfolio</a>
                     </article>
                     </div>
                 </div>
@@ -117,8 +129,7 @@
         <!-- end of banner one -->
 
         <!-- services section -->
-         <a name="t3"></a>
-        <section id = "services" class = "services py">
+        <section id = "portfolio" class = "services py">
             <div class = "container">
                 <div class = "section-head text-center">
                     <h2 class = "lead">Portfolio</h2>
@@ -135,7 +146,7 @@
                             <img src = "images/icons8-html-48.png">
                         </div>
                         <h3>HTML</h3>
-                        <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis possimus doloribus facilis velit, assumenda tempora quas mollitia quos voluptatibus consequatur!</p>
+                        <p class = "text text-sm">Proficient in crafting semantic, accessible HTML structures that form the foundation of modern web applications. Creating clean, well-organized markup that enhances SEO and user experience.</p>
                     </article>
 
                     <article class = "service-item">
@@ -143,7 +154,7 @@
                             <img src = "images/icons8-css-48.png">
                         </div>
                         <h3>CSS</h3>
-                        <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis possimus doloribus facilis velit, assumenda tempora quas mollitia quos voluptatibus consequatur!</p>
+                        <p class = "text text-sm">Expert in modern CSS techniques including Flexbox, Grid, animations, and responsive design. Building beautiful, pixel-perfect interfaces that work seamlessly across all devices and browsers.</p>
                     </article>
 
                     <article class = "service-item">
@@ -151,7 +162,7 @@
                             <img src = "images/icons8-javascript-48.png">
                         </div>
                         <h3>JavaScript</h3>
-                        <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis possimus doloribus facilis velit, assumenda tempora quas mollitia quos voluptatibus consequatur!</p>
+                        <p class = "text text-sm">Strong command of vanilla JavaScript, ES6+ features, DOM manipulation, and asynchronous programming. Creating interactive, dynamic web experiences with clean, efficient code.</p>
                     </article>
 
                     <article class = "service-item">
@@ -159,7 +170,7 @@
                             <img src = "images/icons8-react-js-48.png">
                         </div>
                         <h3>React.js</h3>
-                        <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis possimus doloribus facilis velit, assumenda tempora quas mollitia quos voluptatibus consequatur!</p>
+                        <p class = "text text-sm">Building scalable, maintainable React applications with hooks, context API, and modern best practices. Developing component-based architectures that deliver exceptional user experiences.</p>
                     </article>
                 </div>
             </div>
@@ -167,8 +178,7 @@
         <!-- end of services section -->
 
         <!-- team section -->
-         <a name="t6"></a>
-        <section id = "doc-panel" class = "doc-panel py">
+        <section id = "team" class = "doc-panel py">
             <div class = "container">
                 <div class = "section-head">
                     <h2>Our Team</h2>
@@ -177,7 +187,7 @@
                 <div class = "doc-panel-inner grid">
                     <div class = "doc-panel-item">
                         <div class = "img flex">
-                            <img src = "images/sami1.jpg" alt = "doctor image">
+                            <img src = "images/sami2.jpg" alt = "doctor image">
                             <div class = "info text-center bg-blue text-white flex">
                                 <p class = "lead">Abdul Sami</p>
                                 <p class = "text-lg">Frontend Developer</p>
@@ -199,7 +209,7 @@
                         <div class = "img flex">
                             <img src = "images/0a52d5e52f7b81f96538d6b16ed5dc2b.jpg" alt = "doctor image">
                             <div class = "info text-center bg-blue text-white flex">
-                                <p class = "lead">waqas Hussain</p>
+                                <p class = "lead">Waqas Hussain</p>
                                 <p class = "text-lg">Python Expert</p>
                             </div>
                         </div>
@@ -210,8 +220,7 @@
         <!-- end of doctors section -->
 
         <!-- package services section -->
-         <a name="t4"></a>
-        <section id = "package-service" class = "package-service py text-center">
+        <section id = "experience" class = "package-service py text-center">
             <div class = "container">
                 <div class = "package-service-head text-white">
                     <h2>Experience</h2>
@@ -222,7 +231,7 @@
                         <div class = "icon flex">
                             <i class = "fas fa-calendar-alt fa-2x"></i>
                         </div>
-                        <h3>HTML <br> CSS <br> JavaScript <br> React.js <br> Tailwind css <br>Bhootstrap </h3>
+                        <h3>HTML <br> CSS <br> JavaScript <br> React.js <br> Tailwind CSS <br> Bootstrap </h3>
                         <!-- <div>
                               <button class="btn btn-white">
                                 <b>Projects</b>
@@ -230,8 +239,8 @@
                         </button>
                         </div> -->
                       
-                        <p class = "text text-sm">Currently, I'm expanding my skill set to <span style="font-weight: bold; font-style: italic; ">Backend Development</span>, exploring the world of server-side programming and database management. I'm constantly learning, experimenting, and pushing the boundaries of what's possible on the web. With a strong academic background and hands-on experience. <br> Node.js <br>Express <br> MangoDB</p>
-                        <a href = "#" class = "btn btn-blue">Read More</a>
+                        <p class = "text text-sm">Currently, I'm expanding my skill set to <span style="font-weight: bold; font-style: italic; ">Backend Development</span>, exploring the world of server-side programming and database management. I'm constantly learning, experimenting, and pushing the boundaries of what's possible on the web. With a strong academic background and hands-on experience. <br> Node.js <br> Express <br> MongoDB</p>
+                        <a href = "#portfolio" class = "btn btn-blue">View Portfolio</a>
                     </div>
 
                    
@@ -241,7 +250,6 @@
         <!-- end of package services section -->
 
         <!-- posts section -->
-         <a name="t7"></a>
         <section id = "posts" class = "posts py">
             <div class = "container">
                 <div class = "section-head">
@@ -254,8 +262,8 @@
                         </div>
                         <div class = "content">
                             <h4>Just launched a new project! 🚀💻 Check out my latest web development creation and let me know what you think! #webdevelopment #AbdulSami</h4>
-                            <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptas eius recusandae sunt obcaecati esse facere cumque. Aliquid, cupiditate debitis.</p>
-                            <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quia ipsam, quis iure sed nulla.</p>
+                            <p class = "text text-sm">I'm excited to share my latest project - a fully responsive portfolio website built with modern web technologies. This project showcases my skills in frontend development, UI/UX design, and user experience optimization.</p>
+                            <p class = "text text-sm">The website features smooth animations, beautiful transitions, and interactive elements that create an engaging user experience. Built with HTML, CSS, JavaScript, and responsive design principles.</p>
                             <div class = "info flex">
                                 <small class = "text text-sm"><i class = "fas fa-clock"></i> jul 6, 2025</small>
                                 <small class = "text text-sm"><i class = "fas fa-comment"></i> 5 comments</small>
@@ -269,8 +277,8 @@
                         </div>
                         <div class = "content">
                             <h4>Coding magic happens here! ✨💻 Sharing my latest web development project, where design meets functionality. What do you think? #webdev #coding #AbdulSami</h4>
-                            <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptas eius recusandae sunt obcaecati esse facere cumque. Aliquid, cupiditate debitis. <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nostrum eius itaque fuga veniam non iusto laboriosam nulla voluptas rerum. Nisi sed voluptatibus doloremque laborum possimus eius reiciendis sapiente libero.</p>
-                            <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quia ipsam, quis iure sed nulla.</p>
+                            <p class = "text text-sm">This project demonstrates the perfect blend of aesthetics and functionality. I've implemented advanced CSS animations, interactive elements, and modern design patterns to create an exceptional user interface. <br> The project includes responsive layouts, smooth scrolling effects, and optimized performance. Every component has been carefully crafted to ensure the best possible user experience across all devices and screen sizes.</p>
+                            <p class = "text text-sm">Built with attention to detail and a passion for creating beautiful, functional web applications that make a lasting impression on users.</p>
                             <div class = "info flex">
                                 <small class = "text text-sm"><i class = "fas fa-clock"></i> jan 12, 2025</small>
                                 <small class = "text text-sm"><i class = "fas fa-comment"></i> 5 comments</small>
@@ -284,8 +292,8 @@
                         </div>
                         <div class = "content">
                             <h4>Web development is not just about coding, it's about creating experiences. 🌐💻  #webdevelopment #newlaunch #AbdulSami.</h4>
-                            <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptas eius recusandae sunt obcaecati esse facere cumque. Aliquid, cupiditate debitis.</p>
-                            <p class = "text text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quia ipsam, quis iure sed nulla.</p>
+                            <p class = "text text-sm">Web development goes beyond writing code - it's about understanding users, solving problems, and creating memorable digital experiences. Every project is an opportunity to blend creativity with technical expertise.</p>
+                            <p class = "text text-sm">Whether it's a simple landing page or a complex web application, I approach each project with dedication and a focus on delivering solutions that exceed expectations.</p>
                             <div class = "info flex">
                                 <small class = "text text-sm"><i class = "fas fa-clock"></i> April 7, 2025</small>
                                 <small class = "text text-sm"><i class = "fas fa-comment"></i> 5 comments</small>
@@ -298,7 +306,6 @@
         <!-- end of posts section -->
 
         <!-- contact section -->
-         <a name="t5"></a>
         <section id = "contact" class = "contact py">
             <div class = "container grid">
                 <!-- <div class = "contact-left">
@@ -306,23 +313,36 @@
                 </div> -->
                 <div class = "contact-right text-white text-center bg-blue">
                     <div class = "contact-head">
-                        <h3 class = "lead">Contact Us</h3>
-                        <p class = "text text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga.</p>
+                                            <h3 class = "lead">Contact Me</h3>
+                    <p class = "text text-md">Get in touch with me for any inquiries or opportunities!</p>
                     </div>
-                    <form>
+                    <form id="contact-form">
                         <div class = "form-element">
-                            <input type = "text" class = "form-control" placeholder="Your name">
+                            <input type = "text" id="name" name="name" class = "form-control" placeholder="Your name" required>
                         </div>
                         <div class = "form-element">
-                            <input type = "email" class = "form-control" placeholder="Your email">
+                            <input type = "email" id="email" name="email" class = "form-control" placeholder="Your email" required>
                         </div>
                         <div class = "form-element">
-                            <textarea rows = "5" placeholder="Your Message" class = "form-control"></textarea>
+                            <input type = "text" id="subject" name="subject" class = "form-control" placeholder="Subject" required>
+                        </div>
+                        <div class = "form-element">
+                            <textarea rows = "5" id="message" name="message" placeholder="Your Message" class = "form-control" required></textarea>
                         </div>
                         <button type = "submit" class = "btn btn-white btn-submit">
-                            <i class = "fas fa-arrow-right"></i> Send Message
+                            <i class = "fas fa-paper-plane"></i> Send Message
                         </button>
+                        <p id="form-status" class="text text-sm" style="margin-top: 1rem; display: none;"></p>
                     </form>
+                    
+                    <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                        <p class="text text-sm">
+                            <i class="fas fa-info-circle"></i> 
+                            <strong>Direct Contact:</strong> Email me at 
+                            <a href="mailto:samij7141@gmail.com" style="color: #FFD700; text-decoration: underline;">samij7141@gmail.com</a> 
+                            or call <strong>+92 3065779097</strong>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -334,16 +354,16 @@
         <div class = "container">
             <div class = "footer-inner text-white py grid">
                 <div class = "footer-item">
-                    <h3 class = "footer-head">about us</h3>
+                                                <h3 class = "footer-head">About Me</h3>
                     <div class = "icon">
                         <img src = "images/icons8-man-technologist-48.png" style="width: 80px; height: 80px;">
                     </div>
-                    <p class = "text text-md">Hello! I'm Abdul Sami, a passionate Software Engineering student at Islamia College University Peshawar, .....</p>
+                    <p class = "text text-md">Hello! I'm Abdul Sami, a passionate Software Engineering student at Islamia College University Peshawar, Pakistan. I specialize in Frontend Web Development and am expanding into Backend Development.</p>
                     <address>
-                        Islamia college Peshawar <br>
-                        University <br>
-                         ICP Ahmad faraz block CS Department <br>
-                        Pakistan
+                        Islamia College University<br>
+                        Peshawar, Pakistan<br>
+                        ICP Ahmad Faraz Block<br>
+                        CS Department
                     </address>
                 </div>
 
@@ -362,16 +382,16 @@
                 <div class = "footer-item">
                     <h3 class = "footer-head">Quick Links</h3>
                     <ul>
-                        <li><a href = "#" class = "text-white">About</a></li>
-                        <li><a href = "#" class = "text-white">Portfolio</a></li>
-                        <li><a href = "#" class = "text-white">Experience</a></li>
-                        <li><a href = "#" class = "text-white">contact</a></li>
+                        <li><a href = "#about" class = "text-white">About</a></li>
+                        <li><a href = "#portfolio" class = "text-white">Portfolio</a></li>
+                        <li><a href = "#experience" class = "text-white">Experience</a></li>
+                        <li><a href = "#contact" class = "text-white">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class = "footer-item">
                     <h3 class = "footer-head">Contact</h3>
-                    <p class = "text text-md">Feel free to reach out to me through ...</p>
+                                                <p class = "text text-md">Feel free to reach out to me for collaborations, opportunities, or just to say hello!</p>
                     <ul class = "appointment-info">
                         <!-- <li>8:00 AM - 11:00 AM</li>
                         <li>2:00 PM - 05:00 PM</li>
@@ -390,10 +410,10 @@
 
             <div class = "footer-links">
                 <ul class = "flex">
-                    <li><a href = "#" class = "text-white flex"> <i class = "fab fa-facebook-f"></i></a></li>
-                    <li><a href = "https://www.instagram.com/greeneyed._.sami/?utm_source=qr&r=nametag" class = "text-white flex"> <i class = "fab fa-instagram"></i></a></li>
-                    <li><a href = "https://www.linkedin.com/in/abdul-sami-304a162b1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class = "text-white flex"> <i class = "fab fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/Abdulsami1122" class = "text-white flex"> <i class="fab fa-github"> </i></a></li>
+                                            <li><a href = "https://www.facebook.com" target="_blank" rel="noopener noreferrer" class = "text-white flex"> <i class = "fab fa-facebook-f"></i></a></li>
+                                            <li><a href = "https://www.instagram.com/greeneyed._.sami/?utm_source=qr&r=nametag" target="_blank" rel="noopener noreferrer" class = "text-white flex"> <i class = "fab fa-instagram"></i></a></li>
+                                            <li><a href = "https://www.linkedin.com/in/abdul-sami-304a162b1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class = "text-white flex"> <i class = "fab fa-linkedin"></i></a></li>
+                                            <li><a href="https://github.com/Abdulsami1122" target="_blank" rel="noopener noreferrer" class = "text-white flex"> <i class="fab fa-github"> </i></a></li>
                       
                 </ul>
             </div>
@@ -402,6 +422,8 @@
     <!-- end of footer  -->
 
 
+    <!-- Email functionality is now handled in script.js -->
+    
     <!-- custom js -->
     <script src = "js/script.js"></script>
 </body>

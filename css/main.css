@@ -232,8 +232,45 @@ h1, h2, h3{
         -ms-flex-pack: justify;
             justify-content: space-between;
 }
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 90px;
+    height: 52px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+/* Clear circular profile logo */
+.profile-logo {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 4px solid white !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+    background: white !important;
+    padding: 2px !important;
+}
+
+.profile-logo:hover {
+    transform: scale(1.15) !important;
+    border-color: #FFD700 !important;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3), 0 6px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
 .navbar-brand img{
-    width: 168px;
+    width: 90px;
+    height: auto;
+    max-height: 52px;
 }
 .navbar-show-btn, .navbar-hide-btn{
     background-color: transparent;
@@ -253,12 +290,11 @@ button[class ^= navbar]:hover{
     position: fixed;
     top: 0;
     right: 0;
-    width: 100%;
+    width: 50%;
+    max-width: 300px;
     height: 100%;
-    padding: 8rem 3rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    padding: 8rem 2rem;
+    display: none;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -266,8 +302,8 @@ button[class ^= navbar]:hover{
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    -webkit-box-shadow: -3px 0 10px 4px rgba(0, 0, 0, 0.1);
-            box-shadow: -3px 0 10px 4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: -3px 0 10px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: -3px 0 10px 4px rgba(0, 0, 0, 0.3);
     -webkit-transform: translateX(110%);
         -ms-transform: translateX(110%);
             transform: translateX(110%);
@@ -275,9 +311,13 @@ button[class ^= navbar]:hover{
     -o-transition: var(--transition);
     transition: var(--transition);
     z-index: 1000;
+    overflow-y: auto;
 }
 /* navbar show class */
 .navbar-show{
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
     -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
             transform: translateX(0);
@@ -297,6 +337,8 @@ button[class ^= navbar]:hover{
     -o-transition: var(--transition);
     transition: var(--transition);
     display: inline-block;
+    padding: 0.5rem 0;
+    cursor: pointer;
 }
 .nav-link:hover{
     opacity: 1;
@@ -925,7 +967,37 @@ button[class ^= navbar]:hover{
     }
 }
 
+/* Form status message animations */
+#form-status {
+    transition: all 0.3s ease;
+}
+
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* Button icon spacing */
+.btn i {
+    margin-right: 0.5rem;
+}
+
 /* Media Queries */
+@media(max-width: 320px){
+    .navbar-collapse{
+        width: 70%;
+    }
+}
+
 @media(min-width: 450px){
     .navbar-collapse{
         width: 320px;
@@ -944,6 +1016,11 @@ button[class ^= navbar]:hover{
 }
 
 @media(min-width: 768px){
+    .logo-img, .navbar-brand img {
+        width: 100px;
+        height: auto;
+    }
+    
     .header-inner-left h1{
         font-size: 5.7rem;
     }
@@ -1078,75 +1155,132 @@ button[class ^= navbar]:hover{
     }
 }
 
-@media(min-width: 1200px){
-    .navbar-show-btn, .navbar-hide-btn{
-        display: none;
-    }
-    .navbar-collapse{
-        -webkit-transform: translateX(0);
-            -ms-transform: translateX(0);
-                transform: translateX(0);
-        position: relative;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
-        -webkit-box-pack: end;
-            -ms-flex-pack: end;
-                justify-content: flex-end;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        width: 100%;
+@media(min-width: 768px){
+    .logo-img, .navbar-brand img {
+        width: 100px;
         height: auto;
-        padding: 0;
-        background-color: transparent;
-        -webkit-box-shadow: none;
-                box-shadow: none;
-        -webkit-transition: none;
-        -o-transition: none;
-        transition: none;
+    }
+    
+    .profile-logo {
+        width: 65px !important;
+        height: 65px !important;
+    }
+    
+    .navbar-show-btn, .navbar-hide-btn{
+        display: none !important;
+    }
+    
+    .navbar-collapse{
+        display: flex !important;
+        -webkit-transform: translateX(0) !important;
+            -ms-transform: translateX(0) !important;
+                transform: translateX(0) !important;
+        position: static !important;
+        -webkit-box-orient: horizontal !important;
+        -webkit-box-direction: normal !important;
+            -ms-flex-direction: row !important;
+                flex-direction: row !important;
+        -webkit-box-pack: end !important;
+            -ms-flex-pack: end !important;
+                justify-content: flex-end !important;
+        -webkit-box-align: center !important;
+            -ms-flex-align: center !important;
+                align-items: center !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        background-color: transparent !important;
+        -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+        -webkit-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: auto !important;
+        overflow-y: visible !important;
     }
     .navbar-nav{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 2rem !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     .nav-item{
-        margin: 0;
-        margin-left: 3.5rem;
+        margin: 0 !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     .nav-link{
-        color: var(--light-color);
-        opacity: 1;
+        color: var(--light-color) !important;
+        opacity: 0.9 !important;
         font-weight: 500;
         position: relative;
-    }
-    .nav-link::after{
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 0;
-        height: 2px;
-        width: 0;
-        background-color: var(--light-color);
-        opacity: 0;
-        -webkit-transition: var(--transition);
-        -o-transition: var(--transition);
-        transition: var(--transition);
+        font-size: 1.4rem;
+        display: inline-block !important;
+        visibility: visible !important;
+        padding: 0.5rem 1rem !important;
+        border-radius: 25px !important;
+        transition: all 0.3s ease !important;
+        text-transform: capitalize !important;
     }
     .nav-link:hover{
-        -webkit-transform: none;
-            -ms-transform: none;
-                transform: none;
-        color: var(--light-color);
-    }
-    .nav-link:hover::after{
-        opacity: 1;
-        width: 100%;
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        color: var(--light-color) !important;
+        opacity: 1 !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
     }
     .search-bar{
-        margin-left: 5.5rem;
+        margin-left: 2rem;
+        display: flex !important;
+    }
+    .search-bar-box{
+        display: flex !important;
+    }
+}
+
+@media(min-width: 1200px){
+    .logo-img, .navbar-brand img {
+        width: 120px;
+        height: auto;
+    }
+    
+    .profile-logo {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .navbar-collapse{
+        display: flex !important;
+    }
+    
+    .navbar-nav{
+        gap: 2.5rem !important;
+    }
+    
+    .nav-link{
+        font-size: 1.5rem;
+        padding: 0.6rem 1.2rem !important;
+    }
+    
+    .search-bar{
+        margin-left: 3rem;
+    }
+    .search-control{
+        width: 180px;
+        font-size: 1.4rem;
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: var(--light-color) !important;
+    }
+    .search-control::placeholder{
+        color: rgba(255, 255, 255, 0.7) !important;
     }
     .search-inner-right{
         width: 100%;
@@ -1154,9 +1288,6 @@ button[class ^= navbar]:hover{
     .search-inner-right img{
         padding-left: 0;
         max-width: 647px;
-    }
-    .search-control{
-        width: 150px;
     }
     .header-inner-right{
         width: 100%;
@@ -1203,6 +1334,34 @@ button[class ^= navbar]:hover{
     .container{
         max-width: 81vw;
     }
+}
+
+/* Typing Animation */
+.animated-text {
+    display: inline-block;
+    position: relative;
+}
+
+.static-text {
+    display: inline;
+}
+
+.typing-text {
+    display: inline;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 /* transition and animation stopper */

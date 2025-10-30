@@ -97,9 +97,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const headerOffset = 80; // Offset for fixed navbar
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
             });
             // Close mobile menu if open
             closeMobileMenu();
@@ -120,7 +124,7 @@ window.addEventListener('scroll', () => {
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(0, 80, 213, 0.95)';
+        navbar.style.background = 'rgba(26, 26, 26, 0.95)';
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
     } else {
         navbar.style.background = 'transparent';
@@ -185,7 +189,6 @@ if (searchInput) {
                 'about': document.getElementById('about'),
                 'portfolio': document.getElementById('portfolio'),
                 'skills': document.getElementById('portfolio'),
-                'team': document.getElementById('team'),
                 'post': document.getElementById('posts'),
                 'posts': document.getElementById('posts'),
                 'blog': document.getElementById('posts'),
@@ -203,7 +206,7 @@ if (searchInput) {
             }
             
             // If no match found, show alert
-            alert('No results found. Try searching for: home, about, portfolio, skills, team, posts, experience, or contact');
+            alert('No results found. Try searching for: home, about, portfolio, skills, posts, experience, or contact');
         }
     });
 }
@@ -252,13 +255,13 @@ const typingText = document.getElementById('typing-text');
 const cursor = document.getElementById('cursor');
 
 const titles = [
+    'Software Engineer',
     'Web Developer',
-    'Programmer', 
-    'Frontend Developer',
-    'React Developer',
-    'JavaScript Developer',
     'UI/UX Designer',
-    'Software Engineer'
+    'Programmer',
+    'React Developer',
+    'Frontend Developer',
+    'JavaScript Developer'
 ];
 
 let titleIndex = 0;

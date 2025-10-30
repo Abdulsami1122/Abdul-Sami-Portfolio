@@ -2,8 +2,8 @@
 
 /* variables */
 :root{
-    --fros-blue-color: #0050d5;
-    --light-blue-color: #081b29;
+    --fros-blue-color: #0e1b1b;
+    --light-blue-color: #1C3A3A;
     --dark-color: #202020;
     --light-gray: #dedede;
     --dark-gray: #a1a1a0;
@@ -104,7 +104,7 @@ a{
 }
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 80, 213, 0.3);
+    box-shadow: 0 10px 25px rgba(47, 79, 79, 0.3);
 }
 .btn-light-blue{
     background-color: var(--light-blue-color);
@@ -182,6 +182,29 @@ h1, h2, h3{
 .py{
     padding: 10.9rem 0;
 }
+/* Add spacing between sections */
+.about.py{
+    padding-bottom: 0;
+    margin-bottom: 3rem;
+}
+.services.py{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 3rem;
+    margin-bottom: 0;
+}
+.package-service.py{
+    padding-top: 0;
+    margin-top: 3rem;
+}
+.posts.py{
+    padding-bottom: 0;
+    margin-bottom: 3rem;
+}
+.contact.py{
+    padding-top: 0;
+    margin-top: 3rem;
+}
 .text-center{
     text-align: center;
 }
@@ -201,7 +224,7 @@ h1, h2, h3{
 /* header */
 .header{
     min-height: 100vh;
-    background: linear-gradient(135deg, #0050d5 0%, #081b29 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     position: relative;
     overflow: hidden;
 }
@@ -388,8 +411,27 @@ button[class ^= navbar]:hover{
 .header-inner-left h1{
     font-size: 4rem;
     font-weight: 300;
-    margin-bottom: 0;
+    margin-bottom: 1.5rem;
     animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+.header-subtitle{
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: var(--light-color);
+    animation: fadeInUp 1s ease-out 0.5s backwards;
+    min-height: 3.5rem;
+}
+.header-subtitle .animated-text{
+    display: inline-block;
+}
+.header-subtitle .typing-text{
+    color: #FFD700;
+    font-weight: 600;
+}
+.header-subtitle .cursor{
+    color: #FFD700;
+    font-weight: 600;
 }
 @keyframes fadeInLeft {
     from {
@@ -458,10 +500,10 @@ button[class ^= navbar]:hover{
 .header-inner-left .lead{
     opacity: 0.9;
     animation: leadAnimation 6s infinite;
-    
+    margin: 2rem 0;
 }
 .header-inner-left .text{
-    margin: 5.8rem 0;
+    margin: 2rem 0 3rem 0;
     max-width: 500px;
     margin-right: auto;
     margin-left: auto;
@@ -496,6 +538,11 @@ button[class ^= navbar]:hover{
 }
 
 /* about section */
+.about.py{
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 3rem 0 0 0;
+}
 .section-head h2{
     font-size: 4rem;
     font-weight: 500;
@@ -507,7 +554,7 @@ button[class ^= navbar]:hover{
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    background-color: var(--light-gray);
+    background-color: rgba(255, 255, 255, 0.2);
     position: relative;
 }
 .border-line::after{
@@ -534,7 +581,8 @@ button[class ^= navbar]:hover{
     line-height: 2.3;
 }
 .about .btn-white{
-    color: var(--dark-gray);
+    color: var(--dark-color);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .about-right .img{
     width: 100%;
@@ -569,9 +617,9 @@ button[class ^= navbar]:hover{
 
 /* banner one section
 .banner-one{
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 80, 213, 0.9)), to(rgba(0, 90, 213, 0.85))), url('../images/banner-1-img.png') top/cover no-repeat;
-    background: -o-linear-gradient(rgba(0, 80, 213, 0.9), rgba(0, 90, 213, 0.85)), url('../images/banner-1-img.png') top/cover no-repeat;
-    background: linear-gradient(rgba(0, 80, 213, 0.9), rgba(0, 90, 213, 0.85)), url('../images/banner-1-img.png') top/cover no-repeat;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(47, 79, 79, 0.9)), to(rgba(28, 58, 58, 0.85))), url('../images/banner-1-img.png') top/cover no-repeat;
+    background: -o-linear-gradient(rgba(47, 79, 79, 0.9), rgba(28, 58, 58, 0.85)), url('../images/banner-1-img.png') top/cover no-repeat;
+    background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(28, 58, 58, 0.85)), url('../images/banner-1-img.png') top/cover no-repeat;
     height: 480px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -593,6 +641,11 @@ button[class ^= navbar]:hover{
 } */
 
 /* services section */
+.services.py{
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 3rem 0 0 0;
+}
 .services .section-head .text-lg{
     color: var(--dark-gray);
     margin-top: -2rem;
@@ -611,7 +664,7 @@ button[class ^= navbar]:hover{
 .line-art div{
     width: 100px;
     height: 2px;
-    background-color: var(--light-gray);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .services-inner{
     padding: 6rem 0;
@@ -628,7 +681,7 @@ button[class ^= navbar]:hover{
 .service-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(135deg, rgba(0, 80, 213, 0.05) 0%, rgba(8, 27, 41, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(47, 79, 79, 0.05) 0%, rgba(28, 58, 58, 0.05) 100%);
 }
 .service-item .icon img{
     width: 80px;
@@ -666,7 +719,7 @@ button[class ^= navbar]:hover{
 .doc-panel-item .img{
     position: relative;
     height: 440px;
-    background-color: var(--light-gray);
+    background-color: rgba(255, 255, 255, 0.1);
     overflow: hidden;
     -webkit-box-align: end;
         -ms-flex-align: end;
@@ -700,27 +753,15 @@ button[class ^= navbar]:hover{
     margin-top: 14rem;
 }
 .package-service{
-    background: linear-gradient(135deg, rgba(0, 80, 213, 0.95) 0%, rgba(8, 27, 41, 0.95) 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
-}
-.package-service::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('../images/package-service-img.jpg') center/cover;
-    opacity: 0.1;
-    animation: zoomInOut 20s ease-in-out infinite;
-}
-@keyframes zoomInOut {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 3rem 0;
 }
 .package-service-head{
-    color: var(--light-color);
+    color: var(--dark-color);
 }
 .package-service-head h2{
     font-size: 39px;
@@ -730,6 +771,8 @@ button[class ^= navbar]:hover{
     position: relative;
     margin-bottom: 12rem;
     transition: transform 0.3s ease;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
 .package-service-item:last-child{
     margin-bottom: 0;
@@ -757,11 +800,12 @@ button[class ^= navbar]:hover{
             transform: rotate(-45deg);
 }
 .package-service-item h3{
-    opacity: 0.7;
+    opacity: 0.9;
     margin: 8rem 0 4rem 0;
+    color: var(--dark-color);
 }
 .package-service-item .text-sm{
-    color: var(--dark-gray);
+    color: var(--dark-color);
 }
 .package-service-item .btn{
     margin: 4rem 0;
@@ -769,7 +813,10 @@ button[class ^= navbar]:hover{
 
 /* posts section */
 .posts{
-    background: linear-gradient(180deg, #dedede 0%, #f5f5f5 100%);
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 3rem 0 0 0;
 }
 .posts-inner{
     margin-top: 6rem;
@@ -782,6 +829,7 @@ button[class ^= navbar]:hover{
     transition: all 0.3s ease;
     border-radius: 10px;
     overflow: hidden;
+    background-color: var(--light-color);
 }
 .post-item:last-child{
     margin-bottom: 0;
@@ -804,9 +852,11 @@ button[class ^= navbar]:hover{
 }
 .post-item h4{
     margin-bottom: 1rem;
+    color: var(--dark-color);
 }
 .post-item .text{
     padding: 1rem 0;
+    color: var(--dark-color);
 }
 .post-item .info{
     -webkit-box-pack: justify;
@@ -820,7 +870,10 @@ button[class ^= navbar]:hover{
 
 /* contact section */
 .contact {
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 3rem 0;
 }
 .contact-left{
     margin-bottom: 6rem;
@@ -834,33 +887,39 @@ button[class ^= navbar]:hover{
 }
 .contact-right{
     padding: 5rem 4rem;
+    color: var(--dark-color);
 }
 .contact-right form{
     margin-top: 5rem;
 }
 .form-element .form-control{
     width: 100%;
-    background-color: #3373dd;
-    border: none;
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
     outline: 0;
     padding: 1rem 1.6rem;
     margin-bottom: 1.6rem;
-    color: var(--light-color);
+    color: var(--dark-color);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+.form-element .form-control:focus{
+    border-color: var(--fros-blue-color);
 }
 .form-element .form-control::-webkit-input-placeholder{
-    color: var(--light-color);
+    color: var(--dark-gray);
 }
 .form-element .form-control::-moz-placeholder{
-    color: var(--light-color);
+    color: var(--dark-gray);
 }
 .form-element .form-control:-ms-input-placeholder{
-    color: var(--light-color);
+    color: var(--dark-gray);
 }
 .form-element .form-control::-ms-input-placeholder{
-    color: var(--light-color);
+    color: var(--dark-gray);
 }
 .form-element .form-control::placeholder{
-    color: var(--light-color);
+    color: var(--dark-gray);
 }
 .btn-submit{
     margin-top: 4rem;

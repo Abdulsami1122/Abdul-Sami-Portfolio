@@ -102,3 +102,5 @@ emailjs.send('service_12345', 'template_67890', { // Your IDs
 If you prefer not to use EmailJS, you can also use a simple mailto link as a fallback. The form already includes error handling that mentions emailing directly.
 
 
+
+

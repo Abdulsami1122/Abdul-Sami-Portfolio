@@ -1446,13 +1446,14 @@ button[class ^= navbar]:hover{
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
-    animation: contactRotate 30s linear infinite;
+    animation: contactRotate 3s ease-out;
     pointer-events: none;
 }
 
 @keyframes contactRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: rotate(360deg); opacity: 0.5; }
 }
 
 .contact::after {
@@ -1468,13 +1469,14 @@ button[class ^= navbar]:hover{
         rgba(255, 215, 0, 0.02) 50%,
         transparent 70%
     );
-    animation: contactShimmer 10s ease-in-out infinite;
+    animation: contactShimmer 2s ease-out;
     pointer-events: none;
 }
 
 @keyframes contactShimmer {
-    0%, 100% { transform: translateX(-100%) translateY(-100%); }
-    50% { transform: translateX(100%) translateY(100%); }
+    0% { transform: translateX(-100%) translateY(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100%) translateY(100%); opacity: 0.3; }
 }
 
 .contact .container {
@@ -1760,15 +1762,21 @@ button[class ^= navbar]:hover{
 .contact-right > div:last-child i {
     color: #FFD700;
     margin-right: 0.5rem;
-    animation: contactIconPulse 2s ease-in-out infinite;
+    animation: contactIconPulse 1.5s ease-out;
 }
 
 @keyframes contactIconPulse {
-    0%, 100% {
-        transform: scale(1);
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
     }
     50% {
         transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
 }
 

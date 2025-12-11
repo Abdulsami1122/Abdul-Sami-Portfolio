@@ -185,12 +185,12 @@ h1, h2, h3{
 /* Add spacing between sections */
 .about.py{
     padding-bottom: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 0;
 }
 .services.py{
     padding-top: 0;
     padding-bottom: 0;
-    margin-top: 3rem;
+    margin-top: 0;
     margin-bottom: 0;
 }
 .package-service.py{
@@ -542,74 +542,16 @@ button[class ^= navbar]:hover{
 
 /* about section */
 .about.py{
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
     padding: 5rem 0;
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.03) 0%, rgba(45, 45, 45, 0.03) 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Animated background effects for about section */
-.about.py::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
-    animation: aboutRotate 25s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes aboutRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.about.py::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        45deg,
-        transparent 30%,
-        rgba(255, 215, 0, 0.02) 50%,
-        transparent 70%
-    );
-    animation: aboutShimmer 12s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes aboutShimmer {
-    0%, 100% { transform: translateX(-100%) translateY(-100%); }
-    50% { transform: translateX(100%) translateY(100%); }
 }
 
 .about-inner {
     position: relative;
-    z-index: 1;
 }
 
 .section-head {
     position: relative;
     margin-bottom: 4rem;
-    animation: sectionHeadFadeIn 0.8s ease-out;
-}
-
-@keyframes sectionHeadFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .section-head h2{
@@ -617,24 +559,7 @@ button[class ^= navbar]:hover{
     font-weight: 600;
     margin-bottom: 1rem;
     text-align: center;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    display: inline-block;
-    animation: titlePulse 3s ease-in-out infinite;
-}
-
-@keyframes titlePulse {
-    0%, 100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.1));
-    }
-    50% {
-        transform: scale(1.02);
-        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.3));
-    }
+    color: var(--dark-color);
 }
 
 .border-line{
@@ -642,63 +567,14 @@ button[class ^= navbar]:hover{
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     position: relative;
     border-radius: 2px;
-    overflow: hidden;
-    animation: borderLineGrow 1s ease-out 0.3s backwards;
-}
-
-@keyframes borderLineGrow {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to {
-        width: 100%;
-        opacity: 1;
-    }
-}
-
-.border-line::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
-    height: 100%;
-    width: 102px;
-    background: linear-gradient(90deg, transparent, #FFD700, transparent);
-    animation: borderGlow 2s ease-in-out infinite;
-    border-radius: 2px;
-}
-
-@keyframes borderGlow {
-    0%, 100% {
-        box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-    }
 }
 
 .about-left{
     margin-bottom: 6rem;
-    animation: aboutContentSlide 1s ease-out 0.2s backwards;
     position: relative;
-}
-
-@keyframes aboutContentSlide {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 .about-right{
@@ -710,60 +586,6 @@ button[class ^= navbar]:hover{
     line-height: 2.3;
     font-size: 1.6rem;
     color: var(--dark-color);
-    position: relative;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.about-left .text:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 0.7);
-}
-
-.about-left .text span {
-    transition: color 0.3s ease;
-}
-
-.about-left .text:hover span {
-    color: var(--fros-blue-color);
-}
-
-.about .btn-white{
-    color: var(--dark-color);
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.1) 0%, rgba(45, 45, 45, 0.1) 100%);
-    border: 2px solid rgba(255, 215, 0, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.about .btn-white::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 215, 0, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-}
-
-.about .btn-white:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.about .btn-white:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(26, 26, 26, 0.3),
-                0 0 15px rgba(255, 215, 0, 0.3);
-    border-color: rgba(255, 215, 0, 0.6);
 }
 .about-right .img{
     width: 100%;
@@ -1270,20 +1092,22 @@ button[class ^= navbar]:hover{
     border-bottom-right-radius: 0;
     color: var(--light-color);
     position: absolute;
-    top: -43px;
+    top: 0;
     left: 50%;
-    -webkit-transform: translateX(-50%) rotate(45deg);
-        -ms-transform: translateX(-50%) rotate(45deg);
-            transform: translateX(-50%) rotate(45deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
     transition: all 0.4s ease;
     box-shadow: 0 10px 25px rgba(26, 26, 26, 0.3);
-    animation: iconFloat 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .package-service-item:hover .icon {
     box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4),
               0 10px 25px rgba(26, 26, 26, 0.3);
-    transform: translateX(-50%) rotate(45deg) scale(1.1);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg) scale(1.1);
 }
 
 .package-service-item .icon i{
@@ -1567,40 +1391,11 @@ button[class ^= navbar]:hover{
 
 .contact-right form{
     margin-top: 5rem;
-    animation: contactFormFadeIn 1s ease-out 0.3s backwards;
-}
-
-@keyframes contactFormFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .form-element {
     position: relative;
     margin-bottom: 2rem;
-    animation: formElementSlide 0.6s ease-out backwards;
-}
-
-.form-element:nth-child(1) { animation-delay: 0.4s; }
-.form-element:nth-child(2) { animation-delay: 0.5s; }
-.form-element:nth-child(3) { animation-delay: 0.6s; }
-.form-element:nth-child(4) { animation-delay: 0.7s; }
-
-@keyframes formElementSlide {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 .form-element .form-control{
@@ -1612,7 +1407,7 @@ button[class ^= navbar]:hover{
     margin-bottom: 0;
     color: var(--dark-color);
     border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     font-size: 1.5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -1620,7 +1415,6 @@ button[class ^= navbar]:hover{
 .form-element .form-control:hover {
     border-color: rgba(255, 215, 0, 0.3);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
 }
 
 .form-element .form-control:focus{
@@ -1628,7 +1422,6 @@ button[class ^= navbar]:hover{
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.2),
                 0 4px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
 }
 
 .form-element textarea.form-control {
@@ -1679,18 +1472,6 @@ button[class ^= navbar]:hover{
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
-    animation: buttonFadeIn 1s ease-out 0.8s backwards;
-}
-
-@keyframes buttonFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
 }
 
 .btn-submit::before {
@@ -1712,23 +1493,21 @@ button[class ^= navbar]:hover{
 }
 
 .btn-submit:hover {
-    transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 30px rgba(26, 26, 26, 0.4),
                 0 0 20px rgba(255, 215, 0, 0.3);
     border-color: rgba(255, 215, 0, 0.5);
 }
 
 .btn-submit:active {
-    transform: translateY(-2px) scale(1.02);
+    opacity: 0.9;
 }
 
 .btn-submit i{
     margin-right: 1rem;
-    transition: transform 0.3s ease;
 }
 
 .btn-submit:hover i {
-    transform: translateX(5px) rotate(15deg);
+    color: #FFD700;
 }
 
 /* Contact info box styling */
@@ -2115,6 +1894,29 @@ button[class ^= navbar]:hover{
 .footer-item .appointment-info li span{
     margin-left: 1rem;
     transition: color 0.3s ease;
+}
+
+/* Remove animations from phone number */
+.footer-item .appointment-info li.phone-number {
+    transition: none;
+}
+
+.footer-item .appointment-info li.phone-number:hover {
+    transform: none;
+    color: inherit;
+}
+
+.footer-item .appointment-info li.phone-number i {
+    transition: none;
+}
+
+.footer-item .appointment-info li.phone-number:hover i {
+    transform: none;
+    color: inherit;
+}
+
+.footer-item .appointment-info li.phone-number span {
+    transition: none;
 }
 
 /* Center align contact info on mobile devices */

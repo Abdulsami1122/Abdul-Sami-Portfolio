@@ -500,9 +500,55 @@ function showFormStatus(element, message, type) {
     }
 }
 
+// Stats Counter Animation
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16); // 60fps
+    
+    const updateCounter = () => {
+        start += increment;
+        if (start < target) {
+            element.textContent = Math.floor(start);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    };
+    
+    updateCounter();
+}
+
+function initStatsCounter() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumber = entry.target;
+                const target = parseInt(statNumber.getAttribute('data-target'));
+                
+                // Check if already animated
+                if (!statNumber.classList.contains('animated')) {
+                    statNumber.classList.add('animated');
+                    animateCounter(statNumber, target);
+                }
+            }
+        });
+    }, observerOptions);
+    
+    statNumbers.forEach(stat => {
+        observer.observe(stat);
+    });
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeContactForm();
+    initStatsCounter();
 });
 
 // Contact Form is now handled with enhanced email service

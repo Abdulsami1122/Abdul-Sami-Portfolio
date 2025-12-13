@@ -69,6 +69,14 @@ a{
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    outline: none;
+    font-family: var(--poppins-font);
+}
+
+.btn:focus,
+button:focus {
+    outline: 3px solid rgba(255, 215, 0, 0.5);
+    outline-offset: 3px;
 }
 .btn{
     padding: .9rem 4rem;
@@ -138,7 +146,13 @@ a{
 .container{
     max-width: 95vw;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
+}
+
+@media(max-width: 768px){
+    .container{
+        padding: 0 1.5rem;
+    }
 }
 .flex{
     display: -webkit-box;
@@ -158,8 +172,11 @@ input{
     outline: 0;
 }
 .lead{
-    font-size: 25px;
+    font-size: 2.8rem;
+    font-weight: 400;
     text-transform: capitalize;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
 }
 h1, h2, h3{
     text-transform: capitalize;
@@ -190,22 +207,22 @@ h1, h2, h3{
 .services.py{
     padding-top: 0;
     padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 .package-service.py{
     padding-top: 0;
-    margin-top: 3rem;
+    margin-top: 4rem;
     margin-bottom: 4rem;
 }
 .posts.py{
     padding-bottom: 0;
     margin-top: 4rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 .contact.py{
     padding-top: 0;
-    margin-top: 3rem;
+    margin-top: 4rem;
     margin-bottom: 0;
 }
 .text-center{
@@ -365,6 +382,13 @@ button[class ^= navbar]:hover{
     display: inline-block;
     padding: 0.5rem 0;
     cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+}
+
+.nav-link:focus {
+    outline: 3px solid rgba(255, 215, 0, 0.5);
+    outline-offset: 3px;
 }
 .nav-link:hover{
     opacity: 1;
@@ -408,22 +432,40 @@ button[class ^= navbar]:hover{
     z-index: 1;
 }
 .header-inner-left{
-     animation: fadeInLeft 1s ease-out;
+    animation: fadeInLeft 1s ease-out;
     max-width: 600px;
+    text-align: center;
 }
 .header-inner-left h1{
     font-size: 4rem;
-    font-weight: 300;
+    font-weight: 700;
     margin-bottom: 1.5rem;
     animation: fadeInUp 1s ease-out 0.3s backwards;
+    letter-spacing: -1px;
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header-inner-left h1 .greeting{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.header-inner-left h1 .sami{
+    display: block;
 }
 .header-subtitle{
-    font-size: 2.5rem;
-    font-weight: 400;
+    font-size: 2.8rem;
+    font-weight: 500;
     margin-bottom: 2rem;
     color: var(--light-color);
     animation: fadeInUp 1s ease-out 0.5s backwards;
     min-height: 3.5rem;
+    letter-spacing: -0.5px;
 }
 .header-subtitle .animated-text{
     display: inline-block;
@@ -479,10 +521,7 @@ button[class ^= navbar]:hover{
         transform: scale(1);
     }
 }
-.header-inner-left h1 span{
-    font-weight: 600;
-    animation: pulse 2s ease-in-out infinite;
-}
+/* Removed old h1 span styling - now handled separately */
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.02); }
@@ -542,11 +581,163 @@ button[class ^= navbar]:hover{
 
 /* about section */
 .about.py{
-    padding: 5rem 0;
+    padding: 5rem 0 3rem 0;
 }
 
 .about-inner {
     position: relative;
+}
+
+/* stats section */
+.stats-section{
+    padding: 2.5rem 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.03) 0%, rgba(45, 45, 45, 0.03) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
+    animation: statsRotate 25s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes statsRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.stats-inner{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+}
+
+.stat-item{
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: statItemFadeIn 0.8s ease-out forwards;
+}
+
+.stat-item:nth-child(1) { animation-delay: 0.1s; }
+.stat-item:nth-child(2) { animation-delay: 0.3s; }
+.stat-item:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes statItemFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.stat-item:hover::before {
+    left: 100%;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12),
+                0 0 15px rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.4);
+    background: rgba(255, 255, 255, 1);
+}
+
+.stat-icon{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 0.8rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(26, 26, 26, 0.15);
+}
+
+.stat-item:hover .stat-icon {
+    transform: scale(1.1) rotate(360deg);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3),
+                0 5px 15px rgba(26, 26, 26, 0.2);
+}
+
+.stat-icon i{
+    font-size: 1.8rem;
+    color: #FFD700;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover .stat-icon i {
+    color: #FFD700;
+    transform: scale(1.1);
+}
+
+.stat-content{
+    position: relative;
+}
+
+.stat-content h3{
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin: 0;
+    line-height: 1;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-plus,
+.stat-percent{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFD700;
+    margin-left: 0.1rem;
+}
+
+.stat-label{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.stat-item:hover .stat-label {
+    color: var(--fros-blue-color);
 }
 
 .section-head {
@@ -556,18 +747,22 @@ button[class ^= navbar]:hover{
 
 .section-head h2{
     font-size: 4rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 1rem;
     text-align: center;
     color: var(--dark-color);
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
 
 .border-line{
     height: .4rem;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: rgba(0, 0, 0, 0.1);
+    width: 100px;
+    max-width: 100%;
+    margin: 2rem auto;
+    background: linear-gradient(90deg, transparent, var(--fros-blue-color), transparent);
     position: relative;
     border-radius: 2px;
 }
@@ -581,11 +776,40 @@ button[class ^= navbar]:hover{
     margin-top: 16.8rem;
 }
 
-.about-left .text{
-    margin: 5.6rem 0;
-    line-height: 2.3;
+.about-content {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 4rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.about-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.about-content .text {
+    margin-bottom: 2rem;
+    line-height: 1.9;
     font-size: 1.6rem;
     color: var(--dark-color);
+    text-align: left;
+}
+
+.about-content .text:last-of-type {
+    margin-bottom: 3rem;
+}
+
+.about-content strong {
+    color: var(--fros-blue-color);
+    font-weight: 600;
+}
+
+.about-content .btn {
+    margin-top: 1rem;
 }
 .about-right .img{
     width: 100%;
@@ -645,12 +869,13 @@ button[class ^= navbar]:hover{
 
 /* services section (Portfolio) */
 .services.py{
-    border: 2px solid rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     padding: 5rem 0;
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.03) 0%, rgba(45, 45, 45, 0.03) 100%);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 /* Animated background effects for portfolio section */
@@ -774,18 +999,19 @@ button[class ^= navbar]:hover{
 }
 
 .service-item{
-    padding: 3rem 2.5rem;
+    padding: 3.5rem 2.5rem;
     margin-bottom: 3rem;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
     border: 2px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
     opacity: 0;
     transform: translateY(30px);
     animation: serviceItemFadeIn 0.8s ease-out forwards;
+    backdrop-filter: blur(10px);
 }
 
 .service-item:nth-child(1) { animation-delay: 0.1s; }
@@ -855,15 +1081,16 @@ button[class ^= navbar]:hover{
 }
 
 .service-item h3{
-    margin: 5rem 0 3rem 0;
-    opacity: 0.8;
+    margin: 4rem 0 2.5rem 0;
+    opacity: 0.9;
     transition: all 0.3s ease;
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 2.6rem;
+    font-weight: 700;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.5px;
 }
 
 .service-item:hover h3 {
@@ -930,7 +1157,7 @@ button[class ^= navbar]:hover{
 
 /* package service (Experience) */
 .package-service-inner{
-    margin-top: 14rem;
+    margin-top: 4rem;
     position: relative;
 }
 
@@ -938,9 +1165,10 @@ button[class ^= navbar]:hover{
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.03) 0%, rgba(45, 45, 45, 0.03) 100%);
     position: relative;
     overflow: hidden;
-    border: 2px solid rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     padding: 5rem 0;
+    backdrop-filter: blur(10px);
 }
 
 /* Animated background effects for experience section */
@@ -991,8 +1219,16 @@ button[class ^= navbar]:hover{
 .package-service-head{
     color: var(--dark-color);
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 3rem;
     animation: experienceHeadFadeIn 1s ease-out;
+}
+
+.package-service-head h2 {
+    font-size: 3rem;
+}
+
+.package-service-head .text-lg {
+    font-size: 1.6rem;
 }
 
 @keyframes experienceHeadFadeIn {
@@ -1007,14 +1243,14 @@ button[class ^= navbar]:hover{
 }
 
 .package-service-head h2{
-    font-size: 4rem;
-    font-weight: 600;
+    font-weight: 700;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 1rem;
     animation: experienceTitlePulse 3s ease-in-out infinite;
+    letter-spacing: -0.5px;
 }
 
 @keyframes experienceTitlePulse {
@@ -1035,9 +1271,9 @@ button[class ^= navbar]:hover{
 }
 
 .package-service-item{
-    padding: 4rem 5rem;
+    padding: 3rem 2rem;
     position: relative;
-    margin-bottom: 12rem;
+    margin-bottom: 4rem;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
@@ -1047,6 +1283,91 @@ button[class ^= navbar]:hover{
     opacity: 0;
     transform: translateY(40px);
     animation: experienceItemFadeIn 1s ease-out forwards;
+}
+
+.experience-header {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.experience-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.experience-company {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--fros-blue-color);
+    margin-bottom: 0.5rem;
+}
+
+.experience-role {
+    font-size: 1.3rem;
+    color: var(--dark-gray);
+    margin-bottom: 0;
+}
+
+.skills-list,
+.backend-skills {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(26, 26, 26, 0.03);
+    border-radius: 10px;
+}
+
+.skills-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--fros-blue-color);
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.skills-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.8rem;
+}
+
+.skills-ul li {
+    padding: 0.7rem 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--dark-color);
+    text-align: center;
+    transition: all 0.3s ease;
+    word-wrap: break-word;
+}
+
+.skills-ul li:hover {
+    background: var(--fros-blue-color);
+    color: var(--light-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-color: var(--fros-blue-color);
+}
+
+.backend-skills .text {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.backend-skills strong em {
+    color: var(--fros-blue-color);
+    font-style: italic;
 }
 
 @keyframes experienceItemFadeIn {
@@ -1085,10 +1406,10 @@ button[class ^= navbar]:hover{
 }
 
 .package-service-item .icon{
-    width: 86px;
-    height: 86px;
+    width: 70px;
+    height: 70px;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     border-bottom-right-radius: 0;
     color: var(--light-color);
     position: absolute;
@@ -1114,7 +1435,7 @@ button[class ^= navbar]:hover{
     -webkit-transform: rotate(-45deg);
         -ms-transform: rotate(-45deg);
             transform: rotate(-45deg);
-    font-size: 2rem;
+    font-size: 1.6rem;
     transition: transform 0.4s ease;
 }
 
@@ -1124,17 +1445,7 @@ button[class ^= navbar]:hover{
 }
 
 .package-service-item h3{
-    opacity: 0.9;
-    margin: 8rem 0 4rem 0;
-    color: var(--dark-color);
-    font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 1.6;
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    display: none; /* Hide old h3 as we're using new structure */
 }
 
 .package-service-item:hover h3 {
@@ -1164,10 +1475,12 @@ button[class ^= navbar]:hover{
 }
 
 .package-service-item .btn{
-    margin: 4rem 0;
+    margin: 3rem 0 2rem 0;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 250px;
 }
 
 .package-service-item .btn::before {
@@ -1197,22 +1510,24 @@ button[class ^= navbar]:hover{
 /* posts section */
 .posts{
     background: transparent;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
     padding: 3rem 0 0 0;
+    backdrop-filter: blur(10px);
 }
 .posts-inner{
     margin-top: 6rem;
 }
 .post-item{
-    padding: 1.2rem;
-    -webkit-box-shadow: var(--box-shadow);
-            box-shadow: var(--box-shadow);
+    padding: 0;
+    -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     margin-bottom: 6rem;
     transition: all 0.3s ease;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     background-color: var(--light-color);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 .post-item:last-child{
     margin-bottom: 0;
@@ -1234,8 +1549,11 @@ button[class ^= navbar]:hover{
     padding: 3rem 2rem 1rem 2rem;
 }
 .post-item h4{
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--dark-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.4;
 }
 .post-item .text{
     padding: 1rem 0;
@@ -1254,11 +1572,12 @@ button[class ^= navbar]:hover{
 /* contact section */
 .contact {
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.05) 0%, rgba(45, 45, 45, 0.05) 100%);
-    border: 2px solid rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     padding: 5rem 0;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 /* Animated background effects for contact section */
@@ -1322,6 +1641,10 @@ button[class ^= navbar]:hover{
 .contact-right{
     padding: 5rem 4rem;
     color: var(--dark-color);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 @keyframes contactFadeIn {
@@ -1352,6 +1675,7 @@ button[class ^= navbar]:hover{
 
 .contact-head h3 {
     font-size: 3.5rem;
+    font-weight: 700;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     -webkit-background-clip: text;
@@ -1359,6 +1683,7 @@ button[class ^= navbar]:hover{
     background-clip: text;
     position: relative;
     display: inline-block;
+    letter-spacing: -0.5px;
 }
 
 .contact-head h3::after {
@@ -1395,16 +1720,22 @@ button[class ^= navbar]:hover{
 
 .form-element .form-control{
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     border: 2px solid rgba(0, 0, 0, 0.1);
-    outline: 0;
-    padding: 1.2rem 1.8rem;
+    outline: none;
+    padding: 1.3rem 1.8rem;
     margin-bottom: 0;
     color: var(--dark-color);
-    border-radius: 8px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border-radius: 10px;
+    transition: all 0.3s ease;
     font-size: 1.5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    font-family: var(--poppins-font);
+}
+
+.form-element .form-control:focus {
+    outline: 3px solid rgba(255, 215, 0, 0.3);
+    outline-offset: 2px;
 }
 
 .form-element .form-control:hover {
@@ -2068,9 +2399,253 @@ button[class ^= navbar]:hover{
 }
 
 /* Media Queries */
+/* Stats Section Responsive */
+@media(max-width: 768px){
+    .stats-section{
+        padding: 2rem 0;
+    }
+    
+    .stats-inner{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    
+    .stat-item{
+        padding: 1.2rem 0.8rem;
+    }
+    
+    .stat-icon{
+        width: 45px;
+        height: 45px;
+        margin-bottom: 0.6rem;
+    }
+    
+    .stat-icon i{
+        font-size: 1.5rem;
+    }
+    
+    .stat-content h3{
+        font-size: 1.8rem;
+    }
+    
+    .stat-plus,
+    .stat-percent{
+        font-size: 1.5rem;
+    }
+    
+    .stat-label{
+        font-size: 0.85rem;
+        margin-top: 0.4rem;
+    }
+}
+
+/* Experience Section Responsive Styles */
+@media(max-width: 480px){
+    .stats-section{
+        padding: 2rem 0;
+    }
+    
+    .stats-inner{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .stat-item{
+        padding: 1rem 0.5rem;
+    }
+    
+    .stat-icon{
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-icon i{
+        font-size: 1.3rem;
+    }
+    
+    .stat-content h3{
+        font-size: 1.5rem;
+    }
+    
+    .stat-plus,
+    .stat-percent{
+        font-size: 1.3rem;
+    }
+    
+    .stat-label{
+        font-size: 0.75rem;
+        margin-top: 0.3rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .package-service-inner{
+        margin-top: 2rem;
+    }
+    
+    .package-service-head{
+        margin-bottom: 2rem;
+    }
+    
+    .package-service-head h2{
+        font-size: 2.5rem;
+    }
+    
+    .package-service-head .text-lg {
+        font-size: 1.4rem;
+    }
+    
+    .package-service-item{
+        padding: 2.5rem 1.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .package-service-item .icon{
+        width: 60px;
+        height: 60px;
+    }
+    
+    .package-service-item .icon i{
+        font-size: 1.4rem;
+    }
+    
+    .experience-header {
+        margin-top: 2.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .experience-title {
+        font-size: 1.6rem;
+    }
+    
+    .experience-company {
+        font-size: 1.3rem;
+    }
+    
+    .experience-role {
+        font-size: 1.2rem;
+    }
+    
+    .skills-list,
+    .backend-skills {
+        margin: 1.5rem 0;
+        padding: 1.2rem;
+    }
+    
+    .skills-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .skills-ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+    
+    .skills-ul li {
+        padding: 0.6rem 0.8rem;
+        font-size: 1.1rem;
+    }
+    
+    .package-service-item .btn{
+        margin: 2rem 0 1rem 0;
+        padding: 0.8rem 2rem;
+        font-size: 1.4rem;
+    }
+}
+
 @media(max-width: 320px){
     .navbar-collapse{
         width: 70%;
+    }
+    
+    .header-inner-left h1{
+        font-size: 3rem;
+        align-items: center;
+    }
+    
+    .header-inner-left h1 .greeting{
+        font-size: 2.5rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .header-inner-left h1 .sami{
+        font-size: 2.8rem;
+    }
+    
+    .header-subtitle{
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        padding: 2.5rem 2rem;
+    }
+    
+    .contact-right{
+        padding: 3rem 2rem;
+    }
+    
+    .stats-section{
+        padding: 2rem 0;
+    }
+    
+    .stats-inner{
+        gap: 1rem;
+    }
+    
+    .stat-item{
+        padding: 1rem 0.5rem;
+    }
+    
+    .stat-icon{
+        width: 35px;
+        height: 35px;
+        margin-bottom: 0.4rem;
+    }
+    
+    .stat-icon i{
+        font-size: 1.2rem;
+    }
+    
+    .stat-content h3{
+        font-size: 1.3rem;
+    }
+    
+    .stat-plus,
+    .stat-percent{
+        font-size: 1.1rem;
+    }
+    
+    .stat-label{
+        font-size: 0.7rem;
+        margin-top: 0.3rem;
+    }
+    
+    .package-service-head h2{
+        font-size: 2.2rem;
+    }
+    
+    .package-service-item{
+        padding: 2rem 1.2rem;
+    }
+    
+    .experience-title {
+        font-size: 1.4rem;
+    }
+    
+    .experience-company {
+        font-size: 1.2rem;
+    }
+    
+    .skills-ul {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .skills-ul li {
+        font-size: 1rem;
+        padding: 0.5rem 0.7rem;
     }
 }
 
@@ -2088,7 +2663,25 @@ button[class ^= navbar]:hover{
     .border-line{
         width: 405px;
     }
-
+    
+    .header-inner-left h1{
+        font-size: 3.5rem;
+        align-items: center;
+    }
+    
+    .header-inner-left h1 .greeting{
+        font-size: 3rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .header-inner-left h1 .sami{
+        font-size: 3.3rem;
+    }
+    
+    .stats-inner{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
 }
 
 @media(min-width: 768px){
@@ -2098,8 +2691,150 @@ button[class ^= navbar]:hover{
     }
     
     .header-inner-left h1{
-        font-size: 5.7rem;
+        font-size: 5.5rem;
+        line-height: 1.2;
+        align-items: flex-start;
     }
+    
+    .header-inner-left h1 .greeting{
+        font-size: 5rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .header-inner-left h1 .sami{
+        font-size: 5.5rem;
+    }
+    
+    .header-subtitle{
+        font-size: 3.2rem;
+    }
+    
+    .about-content {
+        padding: 5rem 4rem;
+    }
+    
+    .package-service-inner{
+        margin-top: 6rem;
+        grid-template-columns: 1fr;
+        -webkit-column-gap: 0;
+           -moz-column-gap: 0;
+                column-gap: 0;
+    }
+    
+    .package-service-head{
+        margin-bottom: 4rem;
+    }
+    
+    .package-service-head h2{
+        font-size: 3.5rem;
+    }
+    
+    .package-service-head .text-lg {
+        font-size: 1.8rem;
+    }
+    
+    .package-service-item{
+        padding: 3.5rem 3rem;
+        margin-bottom: 6rem;
+        max-width: 100%;
+    }
+    
+    .package-service-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .package-service-item .icon{
+        width: 80px;
+        height: 80px;
+    }
+    
+    .package-service-item .icon i{
+        font-size: 1.8rem;
+    }
+    
+    .experience-header {
+        margin-top: 3.5rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .experience-title {
+        font-size: 2rem;
+    }
+    
+    .experience-company {
+        font-size: 1.7rem;
+    }
+    
+    .experience-role {
+        font-size: 1.4rem;
+    }
+    
+    .skills-list,
+    .backend-skills {
+        margin: 2.5rem 0;
+        padding: 2rem;
+    }
+    
+    .skills-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.3rem;
+    }
+    
+    .skills-ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+    }
+    
+    .skills-ul li {
+        padding: 0.75rem 1.2rem;
+        font-size: 1.3rem;
+    }
+    
+    .package-service-item .btn{
+        margin: 3.5rem 0 2rem 0;
+    }
+    
+    .stats-section{
+        padding: 3rem 0;
+    }
+    
+    .stats-inner{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .stat-item{
+        padding: 2rem 1.5rem;
+    }
+    
+    .stat-icon{
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    .stat-icon i{
+        font-size: 2.2rem;
+    }
+    
+    .stat-content h3{
+        font-size: 2.8rem;
+    }
+    
+    .stat-plus,
+    .stat-percent{
+        font-size: 2.2rem;
+    }
+    
+    .stat-label{
+        font-size: 1.2rem;
+        margin-top: 0.6rem;
+    }
+    
+    .skills-ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
     .services-inner, .doc-panel-inner{
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2111,7 +2846,11 @@ button[class ^= navbar]:hover{
     .doc-panel .section-head h2{
         text-align: left;
     }
-    .package-service-inner, .posts-inner, .footer-inner{
+    .package-service-inner{
+        margin-top: 6rem;
+    }
+    
+    .posts-inner, .footer-inner{
         grid-template-columns: repeat(2, 1fr);
         -webkit-column-gap: 6rem;
            -moz-column-gap: 6rem;
@@ -2144,6 +2883,23 @@ button[class ^= navbar]:hover{
     }
     .header-inner-left{
         text-align: left;
+    }
+    .header-inner-left h1{
+        font-size: 6rem;
+        line-height: 1.2;
+        align-items: flex-start;
+    }
+    
+    .header-inner-left h1 .greeting{
+        font-size: 5.5rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .header-inner-left h1 .sami{
+        font-size: 6rem;
+    }
+    .header-subtitle{
+        font-size: 3.2rem;
     }
     .header-inner-left .text{
         margin-left: 0;
@@ -2218,9 +2974,80 @@ button[class ^= navbar]:hover{
     }
     .package-service-inner{
         grid-template-columns: repeat(3, 1fr);
+        margin-top: 8rem;
+        -webkit-column-gap: 3rem;
+           -moz-column-gap: 3rem;
+                column-gap: 3rem;
     }
+    
+    .package-service-head{
+        margin-bottom: 5rem;
+    }
+    
+    .package-service-head h2{
+        font-size: 4rem;
+    }
+    
     .package-service-item{
+        padding: 4rem 4.5rem;
         margin-bottom: 0;
+    }
+    
+    /* Override single column layout on desktop */
+    .package-service-inner .package-service-item {
+        margin-bottom: 0;
+    }
+    
+    .package-service-item .icon{
+        width: 86px;
+        height: 86px;
+    }
+    
+    .package-service-item .icon i{
+        font-size: 2rem;
+    }
+    
+    .experience-header {
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+    }
+    
+    .experience-title {
+        font-size: 2.2rem;
+    }
+    
+    .experience-company {
+        font-size: 1.8rem;
+    }
+    
+    .experience-role {
+        font-size: 1.5rem;
+    }
+    
+    .skills-list,
+    .backend-skills {
+        margin: 3rem 0;
+        padding: 2rem;
+    }
+    
+    .skills-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .skills-ul {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    
+    .skills-ul li {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.4rem;
+    }
+    
+    .package-service-item .btn{
+        margin: 4rem 0;
+        max-width: 280px;
     }
 
     .contact .container{
@@ -2343,6 +3170,58 @@ button[class ^= navbar]:hover{
     .nav-link{
         font-size: 1.5rem;
         padding: 0.6rem 1.2rem !important;
+    }
+    
+    .header-inner-left h1{
+        font-size: 6.5rem;
+        align-items: flex-start;
+    }
+    
+    .header-inner-left h1 .greeting{
+        font-size: 6rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .header-inner-left h1 .sami{
+        font-size: 6.5rem;
+    }
+    
+    .header-subtitle{
+        font-size: 3.5rem;
+    }
+    
+    .stats-section{
+        padding: 3.5rem 0;
+    }
+    
+    .stats-inner{
+        gap: 2.5rem;
+    }
+    
+    .stat-item{
+        padding: 2.5rem 2rem;
+    }
+    
+    .stat-icon{
+        width: 65px;
+        height: 65px;
+    }
+    
+    .stat-icon i{
+        font-size: 2.5rem;
+    }
+    
+    .stat-content h3{
+        font-size: 3rem;
+    }
+    
+    .stat-plus,
+    .stat-percent{
+        font-size: 2.5rem;
+    }
+    
+    .stat-label{
+        font-size: 1.3rem;
     }
     
     .search-bar{

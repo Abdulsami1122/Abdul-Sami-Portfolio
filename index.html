@@ -72,7 +72,8 @@
             <div class = "container grid">
                 <div class = "header-inner-left">
                     <h1 style="padding-top: 10px;">
-                        <span>Hi, i'm <span class="sami">Abdul Sami</span></span>
+                        <span class="greeting">Hi, i'm</span>
+                        <span class="sami">Abdul Sami</span>
                     </h1>
                     <h2 class="header-subtitle">
                         <span class="animated-text">
@@ -81,7 +82,7 @@
                             <span class="cursor" id="cursor">|</span>
                         </span>
                     </h2>
-                    <p class = "lead">"Building Websites, building dreams"</p>
+                    <p class = "lead">"Building Websites,  building dreams"</p>
                     <p class = "text text-md">I'm fueled by a passion for crafting user-friendly and impactful software solutions.</p>
                     <div class = "btn-group">
                         <a href = "Abdul_Sami3.pdf" target="_blank" class = "btn btn-white " style="color: black;" download="Abdul_Sami_Resume.pdf">
@@ -105,19 +106,62 @@
                 <div class = "container grid">
                     <div class = "about-left text-center">
                         <div class = "section-head">
-                            <h2>About Us</h2>
+                            <h2>About Me</h2>
                             <div class = "border-line"></div>
                         </div>
-                         <article class = "service-item">
-                        <p class = "text text-sm"><span style="font-weight: bold;">Hello! I'm Abdul Sami, </span> a passionate Software Engineering student at Islamia College University Peshawar, Pakistan. With a strong foundation in software development principles, I'm dedicated to crafting innovative digital solutions. As a skilled <span style="font-weight: bold;">Frontend Web Developer,</span>  I specialize in building responsive, user-friendly, and visually stunning web applications using HTML, CSS,<span style="font-weight: bold;">JavaScript, React.js,</span>  and Tailwind CSS. Currently, I'm expanding my skill set to <span style="font-weight: bold;">Backend Development,</span> exploring the world of server-side programming and database management. I'm constantly learning, experimenting, and pushing the boundaries of what's possible on the web. With a strong academic background and hands-on experience, I'm confident in my ability to deliver high-quality solutions.</p>
-                         <a href = "#portfolio" class = "btn btn-white">View Portfolio</a>
-                    </article>
+                        <article class = "about-content">
+                            <p class = "text text-md"><strong>Hello! I'm Abdul Sami,</strong> a passionate Software Engineering student at Islamia College University Peshawar, Pakistan. With a strong foundation in software development principles, I'm dedicated to crafting innovative digital solutions.</p>
+                            <p class = "text text-md">As a skilled <strong>Frontend Web Developer,</strong> I specialize in building responsive, user-friendly, and visually stunning web applications using HTML, CSS, <strong>JavaScript, React.js,</strong> and Tailwind CSS. Currently, I'm expanding my skill set to <strong>Backend Development,</strong> exploring the world of server-side programming and database management.</p>
+                            <p class = "text text-md">I'm constantly learning, experimenting, and pushing the boundaries of what's possible on the web. With a strong academic background and hands-on experience, I'm confident in my ability to deliver high-quality solutions.</p>
+                            <a href = "#portfolio" class = "btn btn-white">View Portfolio</a>
+                        </article>
                     </div>
                 </div>
                
             </div>
         </section>
         <!-- end of about section -->
+
+        <!-- stats section -->
+        <section class="stats-section py">
+            <div class="container">
+                <div class="stats-inner grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="20">0</h3>
+                            <span class="stat-plus">+</span>
+                            <p class="stat-label">Completed Projects</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="95">0</h3>
+                            <span class="stat-percent">%</span>
+                            <p class="stat-label">Client Satisfaction</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="2">0</h3>
+                            <span class="stat-plus">+</span>
+                            <p class="stat-label">Years of Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of stats section -->
 
         <!-- banner one -->
         <!-- <section id = "banner-one" class = "banner-one text-center">
@@ -189,20 +233,31 @@
                         <div class = "icon flex">
                             <i class = "fas fa-briefcase fa-2x"></i>
                         </div>
-                        <div style="margin-top: 4rem; margin-bottom: 2rem;">
-                            <h4 style="font-size: 2rem; font-weight: 600; color: var(--dark-color); margin-bottom: 1rem;">6 Month Remote Internship</h4>
-                            <p style="font-size: 1.6rem; font-weight: 500; color: var(--fros-blue-color); margin-bottom: 0.5rem;">DevelopersHub.co</p>
-                            <p style="font-size: 1.4rem; color: var(--dark-gray); margin-bottom: 2rem;">Frontend Development</p>
+                        <div class="experience-header">
+                            <h4 class="experience-title">6 Month Remote Internship</h4>
+                            <p class="experience-company">DevelopersHub.co</p>
+                            <p class="experience-role">Frontend Development</p>
                         </div>
-                        <h3>HTML <br> CSS <br> JavaScript <br> React.js <br> Tailwind CSS <br> Bootstrap </h3>
-                        <!-- <div>
-                              <button class="btn btn-white">
-                                <b>Projects</b>
-                              <span class="badge btn-blue"> 20+</span>
-                        </button>
-                        </div> -->
-                      
-                        <p class = "text text-sm">Currently, I'm expanding my skill set to <span style="font-weight: bold; font-style: italic; ">Backend Development</span>, exploring the world of server-side programming and database management. I'm constantly learning, experimenting, and pushing the boundaries of what's possible on the web. With a strong academic background and hands-on experience. <br> Node.js <br> Express <br> MongoDB</p>
+                        <div class="skills-list">
+                            <h5 class="skills-title">Technologies Used:</h5>
+                            <ul class="skills-ul">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>React.js</li>
+                                <li>Tailwind CSS</li>
+                                <li>Bootstrap</li>
+                            </ul>
+                        </div>
+                        <div class="backend-skills">
+                            <p class = "text text-sm">Currently, I'm expanding my skill set to <strong><em>Backend Development</em></strong>, exploring the world of server-side programming and database management. I'm constantly learning, experimenting, and pushing the boundaries of what's possible on the web.</p>
+                            <h5 class="skills-title">Learning:</h5>
+                            <ul class="skills-ul">
+                                <li>Node.js</li>
+                                <li>Express</li>
+                                <li>MongoDB</li>
+                            </ul>
+                        </div>
                         <a href = "#portfolio" class = "btn btn-blue">View Portfolio</a>
                     </div>
 

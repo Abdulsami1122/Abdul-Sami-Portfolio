@@ -1270,7 +1270,6 @@ button[class ^= navbar]:hover{
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
-    animation: contactRotate 3s ease-out;
     pointer-events: none;
 }
 
@@ -1293,7 +1292,6 @@ button[class ^= navbar]:hover{
         rgba(255, 215, 0, 0.02) 50%,
         transparent 70%
     );
-    animation: contactShimmer 2s ease-out;
     pointer-events: none;
 }
 
@@ -1324,7 +1322,6 @@ button[class ^= navbar]:hover{
 .contact-right{
     padding: 5rem 4rem;
     color: var(--dark-color);
-    animation: contactFadeIn 1s ease-out;
 }
 
 @keyframes contactFadeIn {
@@ -1340,7 +1337,6 @@ button[class ^= navbar]:hover{
 
 .contact-head {
     margin-bottom: 3rem;
-    animation: contactHeadSlide 0.8s ease-out;
 }
 
 @keyframes contactHeadSlide {
@@ -1375,7 +1371,6 @@ button[class ^= navbar]:hover{
     height: 4px;
     background: linear-gradient(90deg, transparent, #FFD700, transparent);
     border-radius: 2px;
-    animation: contactUnderlineGrow 1s ease-out 0.5s backwards;
 }
 
 @keyframes contactUnderlineGrow {
@@ -1517,7 +1512,6 @@ button[class ^= navbar]:hover{
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.05) 0%, rgba(45, 45, 45, 0.05) 100%);
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    animation: contactInfoFadeIn 1s ease-out 1s backwards;
     transition: all 0.3s ease;
 }
 
@@ -1541,7 +1535,6 @@ button[class ^= navbar]:hover{
 .contact-right > div:last-child i {
     color: #FFD700;
     margin-right: 0.5rem;
-    animation: contactIconPulse 1.5s ease-out;
 }
 
 @keyframes contactIconPulse {

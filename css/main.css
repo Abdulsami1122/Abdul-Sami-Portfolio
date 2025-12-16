@@ -2850,13 +2850,17 @@ button[class ^= navbar]:hover{
         margin-top: 6rem;
     }
     
-    .posts-inner, .footer-inner{
+    .posts-inner{
         grid-template-columns: repeat(2, 1fr);
         -webkit-column-gap: 6rem;
            -moz-column-gap: 6rem;
                 column-gap: 6rem;
     }
     .footer-inner{
+        grid-template-columns: repeat(3, 1fr);
+        -webkit-column-gap: 3rem;
+           -moz-column-gap: 3rem;
+                column-gap: 3rem;
         text-align: left;
     }
     .footer-item .icon, .footer-item .text{
@@ -2915,31 +2919,85 @@ button[class ^= navbar]:hover{
         right: 0;
         padding-left: 5rem;
     }
+    /* Center About section on desktop - cover mid area */
+    .about .container {
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .about-inner .container{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+    }
+    .about-left{
+        text-align: center;
+        margin-bottom: 0;
+        width: 100%;
+    }
+    .about-left .section-head h2{
+        text-align: center;
+    }
+    .border-line{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .border-line::after{
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
+    }
+    .about-content {
+        text-align: left;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .about-right{
+        display: none;
+    }
+    
+    /* Center Experience section on desktop - cover mid area (same as about) */
+    .package-service .container {
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .package-service-inner{
+        grid-template-columns: 1fr;
+        margin-top: 4rem;
+        -webkit-column-gap: 0;
+           -moz-column-gap: 0;
+                column-gap: 0;
+    }
+    .package-service-item{
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Center Contact section on desktop - cover mid area (same as experience) */
+    .contact .container {
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        grid-template-columns: 1fr;
+    }
+    .contact-right {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    /* Center Footer section on desktop - cover mid area (same as other sections) */
+    .footer .container {
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer-inner {
+        grid-template-columns: repeat(3, 1fr);
         -webkit-column-gap: 3rem;
            -moz-column-gap: 3rem;
                 column-gap: 3rem;
-    }
-    .about-left{
-        text-align: left;
-        margin-bottom: 0;
-    }
-    .about-left .section-head h2{
-        text-align: left;
-    }
-    .border-line{
-        margin-left: 0;
-    }
-    .border-line::after{
-        left: 0;
-        -webkit-transform: translateX(0);
-            -ms-transform: translateX(0);
-                transform: translateX(0);
-    }
-    .about-right{
-        margin-left: auto;
-        margin-top: 11.2rem;
     }
 
     .banner-two .container{
@@ -2973,29 +3031,25 @@ button[class ^= navbar]:hover{
         margin-bottom: 0;
     }
     .package-service-inner{
-        grid-template-columns: repeat(3, 1fr);
-        margin-top: 8rem;
-        -webkit-column-gap: 3rem;
-           -moz-column-gap: 3rem;
-                column-gap: 3rem;
+        grid-template-columns: 1fr;
+        margin-top: 4rem;
+        -webkit-column-gap: 0;
+           -moz-column-gap: 0;
+                column-gap: 0;
     }
     
     .package-service-head{
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
     }
     
     .package-service-head h2{
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     
     .package-service-item{
-        padding: 4rem 4.5rem;
+        padding: 3.5rem 3rem;
         margin-bottom: 0;
-    }
-    
-    /* Override single column layout on desktop */
-    .package-service-inner .package-service-item {
-        margin-bottom: 0;
+        max-width: 100%;
     }
     
     .package-service-item .icon{
@@ -3051,10 +3105,14 @@ button[class ^= navbar]:hover{
     }
 
     .contact .container{
-        grid-template-columns: repeat(2, 1fr);
-        -webkit-column-gap: 2.4rem;
-           -moz-column-gap: 2.4rem;
-                column-gap: 2.4rem;
+        grid-template-columns: 1fr;
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .contact-right {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
@@ -3138,6 +3196,10 @@ button[class ^= navbar]:hover{
         opacity: 1 !important;
         transform: translateY(-2px) !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    }
+    /* Keep "Latest Post" on one line for desktop */
+    .nav-item:nth-child(5) .nav-link {
+        white-space: nowrap !important;
     }
     .search-bar{
         margin-left: 2rem;
@@ -3274,13 +3336,20 @@ button[class ^= navbar]:hover{
     }
 
     .contact .container{
-        grid-template-columns: auto 514px;
+        grid-template-columns: 1fr;
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .contact-right {
+        width: 100%;
+        max-width: 100%;
     }
     .footer-inner{
-        grid-template-columns: repeat(4, 1fr);
-        -webkit-column-gap: 6rem;
-           -moz-column-gap: 6rem;
-                column-gap: 6rem;
+        grid-template-columns: repeat(3, 1fr);
+        -webkit-column-gap: 3rem;
+           -moz-column-gap: 3rem;
+                column-gap: 3rem;
     }
 }
 

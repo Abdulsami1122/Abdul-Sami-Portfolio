@@ -255,13 +255,11 @@ const typingText = document.getElementById('typing-text');
 const cursor = document.getElementById('cursor');
 
 const titles = [
+    'MERN Stack Developer',
     'Software Engineer',
     'Web Developer',
-    'UI/UX Designer',
     'Programmer',
-    'React Developer',
-    'Frontend Developer',
-    'JavaScript Developer'
+    'UI/UX Designer',
 ];
 
 let titleIndex = 0;

@@ -1014,8 +1014,6 @@ button[class ^= navbar]:hover{
 .service-item:nth-child(7) { animation-delay: 0.7s; }
 .service-item:nth-child(8) { animation-delay: 0.8s; }
 .service-item:nth-child(9) { animation-delay: 0.9s; }
-.service-item:nth-child(10) { animation-delay: 1.0s; }
-.service-item:nth-child(11) { animation-delay: 1.1s; }
 
 @keyframes serviceItemFadeIn {
     to {

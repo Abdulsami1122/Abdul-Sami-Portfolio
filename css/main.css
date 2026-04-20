@@ -277,6 +277,39 @@ h1, h2, h3{
 .navbar-brand {
     display: flex;
     align-items: center;
+    gap: 1rem;
+    color: var(--light-color);
+}
+
+.logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #1C3A3A, #0e1b1b);
+    color: var(--light-color);
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--light-color);
+}
+
+.logo-text span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .logo-img {

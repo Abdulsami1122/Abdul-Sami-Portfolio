@@ -346,7 +346,12 @@ h1, h2, h3{
     -webkit-transition: var(--transition);
     -o-transition: var(--transition);
     transition: var(--transition);
-    z-index: 1002;
+    z-index: 1003;
+}
+.navbar-hide-btn{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
 }
 .navbar-show-btn img,
 .navbar-hide-btn img{

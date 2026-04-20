@@ -1,27 +1,33 @@
 // navbar toggling
-function setupNavbarToggle() {
-    const navbarShowBtn = document.querySelector('.navbar-show-btn');
-    const navbarCollapseDiv = document.querySelector('.navbar-collapse');
-    const navbarHideBtn = document.querySelector('.navbar-hide-btn');
+const navbarShowBtn = document.querySelector('.navbar-show-btn');
+const navbarCollapseDiv = document.querySelector('.navbar-collapse');
+const navbarHideBtn = document.querySelector('.navbar-hide-btn');
 
+function openMobileMenu(event) {
+    if (event) event.stopPropagation();
+    if (!navbarCollapseDiv) return;
+    navbarCollapseDiv.classList.add('navbar-show');
+}
+
+function closeMobileMenu(event) {
+    if (event) event.stopPropagation();
+    if (!navbarCollapseDiv) return;
+    navbarCollapseDiv.classList.remove('navbar-show');
+}
+
+function setupNavbarToggle() {
     if (!navbarShowBtn || !navbarCollapseDiv || !navbarHideBtn) {
         return;
     }
 
     navbarCollapseDiv.classList.remove('navbar-show');
 
-    function closeMobileMenu() {
-        navbarCollapseDiv.classList.remove('navbar-show');
-    }
+    navbarShowBtn.addEventListener('click', openMobileMenu);
+    navbarHideBtn.addEventListener('click', closeMobileMenu);
 
-    navbarShowBtn.addEventListener('click', function(event){
-        event.stopPropagation();
-        navbarCollapseDiv.classList.add('navbar-show');
-    });
-
-    navbarHideBtn.addEventListener('click', function(event){
-        event.stopPropagation();
-        closeMobileMenu();
+    const mobileNavLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
     });
 
     document.addEventListener('click', function(event) {

@@ -1,37 +1,42 @@
 // navbar toggling
-const navbarShowBtn = document.querySelector('.navbar-show-btn');
-const navbarCollapseDiv = document.querySelector('.navbar-collapse');
-const navbarHideBtn = document.querySelector('.navbar-hide-btn');
+function setupNavbarToggle() {
+    const navbarShowBtn = document.querySelector('.navbar-show-btn');
+    const navbarCollapseDiv = document.querySelector('.navbar-collapse');
+    const navbarHideBtn = document.querySelector('.navbar-hide-btn');
 
-// Ensure navbar is hidden on load
-if (navbarCollapseDiv) {
-    navbarCollapseDiv.classList.remove('navbar-show');
-}
-
-// Function to close mobile menu
-function closeMobileMenu() {
-    navbarCollapseDiv.classList.remove('navbar-show');
-}
-
-navbarShowBtn.addEventListener('click', function(){
-    navbarCollapseDiv.classList.add('navbar-show');
-});
-
-navbarHideBtn.addEventListener('click', function(){
-    closeMobileMenu();
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', function(event) {
-    const isClickInsideMenu = navbarCollapseDiv.contains(event.target);
-    const isClickOnShowBtn = navbarShowBtn.contains(event.target);
-    
-    if (navbarCollapseDiv.classList.contains('navbar-show') && 
-        !isClickInsideMenu && 
-        !isClickOnShowBtn) {
-        closeMobileMenu();
+    if (!navbarShowBtn || !navbarCollapseDiv || !navbarHideBtn) {
+        return;
     }
-});
+
+    navbarCollapseDiv.classList.remove('navbar-show');
+
+    function closeMobileMenu() {
+        navbarCollapseDiv.classList.remove('navbar-show');
+    }
+
+    navbarShowBtn.addEventListener('click', function(event){
+        event.stopPropagation();
+        navbarCollapseDiv.classList.add('navbar-show');
+    });
+
+    navbarHideBtn.addEventListener('click', function(event){
+        event.stopPropagation();
+        closeMobileMenu();
+    });
+
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = navbarCollapseDiv.contains(event.target);
+        const isClickOnShowBtn = navbarShowBtn.contains(event.target);
+
+        if (navbarCollapseDiv.classList.contains('navbar-show') &&
+            !isClickInsideMenu &&
+            !isClickOnShowBtn) {
+            closeMobileMenu();
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', setupNavbarToggle);
 
 // changing search icon image on window resize
 window.addEventListener('resize', changeSearchIcon);
